@@ -1,0 +1,9 @@
+.header {
+    background: transparent;
+    z-index: 1;
+}
+
+.logo {
+    max-width: 5em;
+    max-height: 5em;
+}

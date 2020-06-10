@@ -1,0 +1,33 @@
+.nav-bar {
+    margin-left: auto;
+}
+
+.nav-list {
+    padding-top: 1.5em;
+    padding-left: 0;
+    position: relative;
+    float: right;
+    display: flex;
+}
+.nav-list li:first-child a {
+    margin-left: 0;
+}
+.nav-list > li {
+    list-style: none;
+}
+
+.nav-list li a {
+    display: inline-block;
+    text-decoration: none;
+    font-weight: 400;
+    color: #c4ced8;  
+    margin: 0 0 0 1em;
+    font-size: 130%;
+    opacity: 0.7;
+
+}
+
+.link.active {
+    opacity: 1;
+    color:  #c4ced8;
+}
