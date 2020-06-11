@@ -19,15 +19,15 @@
 .nav-list li a {
     display: inline-block;
     text-decoration: none;
-    font-weight: 400;
-    color: #c4ced8;  
+    font-weight: 500;
+    color: #6c6e6fa3; 
     margin: 0 0 0 1em;
     font-size: 130%;
     opacity: 0.7;
-
+    transition: opacity 0.5s ease-in;
 }
 
 .link.active {
+    color: #30383cbf;
     opacity: 1;
-    color:  #c4ced8;
 }

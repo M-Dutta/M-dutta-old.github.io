@@ -3,6 +3,7 @@ import { Header } from './components/header/header'
 import { Base } from './components/base/base'
 import { About } from './components/pages/about/about'
 import { Work } from './components/pages/work/work'
+import { gapMaker } from './components/utils'
 import { BrowserRouter as Switch, Route } from 'react-router-dom'
 import 'bootstrap/dist/css/bootstrap.min.css';
 import './App.css';

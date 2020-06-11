@@ -1,14 +1,12 @@
-
 .intro {
     font-size: 400;
     font-size: 4em;
-    color: #c4ced8;
+    font-family: 'Great Vibes', cursive;
 }
 
-.intro:first-child{
+/* .intro:first-child{
     margin-top: 5em;
-}
+} */
 
 .intro > a {
- font-family: 'Kaushan Script', cursive;;    
 }

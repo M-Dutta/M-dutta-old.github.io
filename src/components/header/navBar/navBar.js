@@ -26,7 +26,7 @@ const NavBar = props => {
         <Switch>
             <Route path='/' exact component={Base}></Route>
             <Route path='/about' component={About}></Route>
-            <Route path='/work' component={Work}></Route>
+            <Route path='/work' ></Route>
         </Switch>
     </Router>
     

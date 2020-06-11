@@ -1,28 +1,59 @@
+:root {
+  --transition_time:0.3s;
+  --trainsition_type: linear;
+}
+
 .container {
-  -webkit-transition: all .5s ease-in 0s;
-  transition: all 0.5s ease-in 0s;
+  -webkit-transition: all var(--transition_time) var(--trainsition_type) 0s;
+  transition: all var(--transition_time) var(--trainsition_type) 0s;
+  /*transition: all var(--transition_time) var(--trainsition_type) 0s;*/
 }
 
 .row [class*='col-'] {
-  transition: all 0.5s ease-in 0s;
+  transition: all var(--transition_time) var(--trainsition_type) 0s !important;
 }
 
-
-
-@media all and (max-width: 1200px) { /* screen size until 1200px */
+@media all and (max-width: 1200px) {
+  /* screen size until 1200px */
   body {
-      font-size: 100% !important; /*  default size */
+    font-size: 100% !important;
+    /*  default size */
   }
 }
-@media all and (max-width: 1000px) { /* screen size until 1000px */
-  body {
-      font-size: 70% !important; /* .7x default size */
-      }
-  }
-@media all and (max-width: 500px) { /* screen size until 500px */
-  body {
-      font-size: 50% !important ; /* 0.5x default size */
-      }
-  }
 
-  
+@media all and (max-width: 1000px) {
+  /* screen size until 1000px */
+  body {
+    font-size: 70% !important;
+    /* .7x default size */
+  }
+  h1 {
+    font-size: 1.75rem! important;
+    transition: font-size var(--transition_time) var(--trainsition_type) 0s;
+  }
+  h2 {
+    font-size: 1.5rem! important;
+    transition: font-size var(--transition_time) var(--trainsition_type) 0s;
+  }
+}
+
+@media all and (max-width: 500px) {
+  /* screen size until 500px */
+  body {
+    font-size: 50% !important;
+    /* 0.5x default size */
+  }
+  h1 {
+    font-size: 1.3rem! important;
+    transition: font-size var(--transition_time) var(--trainsition_type) 0s;
+  }
+  h2 {
+    font-size: 1.1rem !important;
+    transition: font-size var(--transition_time) var(--trainsition_type) 0s;
+  }
+}
+
+/*fonts*/
+@import url(https://fonts.googleapis.com/css2?family=Monoton); /*Used for Headers*/
+@import url(https://fonts.googleapis.com/css2?family=Dancing+Script:wght@700&family=Great+Vibes); /*header and intro*/
+@import url(https://fonts.googleapis.com/css2?family=Comfortaa)
