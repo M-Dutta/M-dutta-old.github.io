@@ -16,40 +16,34 @@
 @media all and (max-width: 1200px) {
   /* screen size until 1200px */
   body {
-    font-size: 100% !important;
     /*  default size */
   }
 }
 
 @media all and (max-width: 1000px) {
   /* screen size until 1000px */
+
+  .w-75 {
+    width: 100%!important;
+  }
   body {
-    font-size: 70% !important;
+
     /* .7x default size */
   }
   h1 {
-    font-size: 1.75rem! important;
-    transition: font-size var(--transition_time) var(--trainsition_type) 0s;
   }
   h2 {
-    font-size: 1.5rem! important;
-    transition: font-size var(--transition_time) var(--trainsition_type) 0s;
   }
 }
 
 @media all and (max-width: 500px) {
   /* screen size until 500px */
   body {
-    font-size: 50% !important;
     /* 0.5x default size */
   }
   h1 {
-    font-size: 1.3rem! important;
-    transition: font-size var(--transition_time) var(--trainsition_type) 0s;
   }
   h2 {
-    font-size: 1.1rem !important;
-    transition: font-size var(--transition_time) var(--trainsition_type) 0s;
   }
 }
 

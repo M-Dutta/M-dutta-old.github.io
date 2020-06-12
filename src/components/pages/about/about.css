@@ -2,3 +2,12 @@
     color: #30383cbf;
     font-weight: 500;
 }
+
+
+.push-animate {
+    -moz-transition: all 0.5s;
+    -ms-transition: all 0.5s;
+    -o-transition: all 0.5s;
+    -webkit-transition: all 0.5s;
+    transition: all 0.5s;
+}
