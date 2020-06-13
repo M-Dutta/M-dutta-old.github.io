@@ -3,17 +3,18 @@ import './about.css'
 import { SectionHeader, SecondaryHeader } from '../sectionHeader'
 import { gapMaker } from '../../utils'
 import { useSpring, useTransition, animated } from 'react-spring'
+import { Base } from './base'
 
 const intro_line_list = [`I'm a Full-Stack Software Engineer based in Atlanta, GA.`,
-    'I like getting my hands dirty with a vast array of technology and prefer putting on several different hats and have an aptitude for solving architectural problems.'
+    'I like getting my hands dirty with a vast array of technology and prefer putting on several different.',
+    'I also enjoy working on system architecture and design to build scaleable and efficient Micro-services.'
 ]
 
 const highlight_list = [
-    `Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.`,
-    `Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.`,
-    `Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.`,
-    `Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.`,
-    `Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.`
+    `Converted legacy User and API Authentication System for Web and IOS application to Oauth2.0 without breaking Compatibility`,
+    `Implemented Just-In-Time (JIT) migration of 600,000+ users from 17,000+ single-tenant databases into a multi-tenant model.`,
+    `Set up CI/CD pipelines using terraform that allows deployment of services in less than 5 minutes via AWS services.`,
+    `Re-built legacy data-stream handlers to handle high volume using custom data structues and boosted peformance by 1500%`,
 ]
 
 const tableHeaders = ['Languages', 'Frameworks', 'Databases and Storage', 'CloudOps', 'Others']
@@ -23,38 +24,41 @@ const database_list = ['MySQL', 'postgreSQL', 'CassandraDB (NoSQL)', 'DynamoDB (
 const ops_and_cloud_list = ['AWS Services', 'GitLab CI', 'Terraform', 'Docker', 'Jenkins']
 const others_list = ['Rest API', 'Micro-services', 'Jenkins', 'Agile', 'Scrum']
 
+const centerContent = 'justify-content-start'
+const leftAlign = 'row justify-content-start pl-sm-2'
 
-
-const listMaker = (itemList, className, unstyledList = true, listStyle = '') => {
-    let items = itemList.map((data, index) => {
-        return <li key={(index).toString()} className={`${className}-items list-item ${index !== 0 ? 'mt-3' : ''}`}>{data}</li>
-    })
-    listStyle = unstyledList ? 'list-unstyled' : listStyle
-    return <ul className={listStyle}>{items}</ul>
+const customListStyle = {
+    listStyleType: 'circle',
 }
 
-const columnDataMaker = (itemList, className) => {
+const listMaker = (itemList, className, listStyle = {}) => {
     let items = itemList.map((data, index) => {
-        return <td key={(index).toString()} className={`${className}-items list-item ${index !== 0 ? 'mt-3' : ''}`}>{data}</td>
+        return (
+            <li key={(index).toString()}
+                className={`${className}-items list-item ${(className === 'intro' && index === 0) ? 'mb-2' : ''}  
+        ${className === 'highlight' ? 'mt-2' : ''}`}>{data}
+            </li>
+        )
     })
-    return <tr>{items}</tr>
+    const ul_style = !!Object.keys(listStyle).length? '': 'list-unstyled';
+    return <ul className={`list-item ${ul_style}`} style={{ ...listStyle }}>{items}</ul>
 }
 
 const IntroBox = props => {
-    return <div className={`container intro-box w-75 pl-0 ml-0`}>{listMaker(intro_line_list, 'intro')}</div>
+    return <div className='row justify-content-start intro-box'>{listMaker(intro_line_list, 'intro')}</div>
 }
 
 const HighlightBox = props => {
+    const parentProps = props
     const transitions = useTransition(null, props.show, {
         from: { opacity: 1, transform: `scale(0)`, transformOrigin: '0 0' },
         enter: { transition: `transform 0.2s linear`, opacity: 1, transform: `scale(1)` },
         leave: { opacity: 0 }
     })
-    return transitions.map(({ item, key, props }) =>
-        <animated.div key={key} className='highlight-box-wrapper' style={props}>
-            {gapMaker(5)}
-            <div className={`container highlight-box w-75 pl-0 pt-2 ml-0 border border-secondary rounded`}>
-                {listMaker(highlight_list, 'highlight', false)}
+    return transitions.map(({ item, key, animated_props }) =>
+        <animated.div key={key} className='row justify-content-start highlight-box-wrapper' style={props}>
+            <div className='highlight-box w-75 pt-2 pr-1 border border-secondary rounded'>
+                {listMaker(highlight_list, 'highlight', customListStyle)}
             </div>
         </animated.div>
     )
@@ -62,49 +66,57 @@ const HighlightBox = props => {
 }
 
 const SkillBox = props => {
-    // <tr><th scope="col">Languages</th><th scope="col">Frameworks</th><th scope="col">Databases</th><th scope="col">Ops</th></tr>
+    const tdNoWrap = {whiteSpace: 'nowrap'}
     return (
-        <div className='skill-box-wrapper push-animate'>
-            <table className='table table-sm table-bordered w-75 pl-0 ml-0'>
+        <div className='row justify-content-start skill-box-wrapper'>
+            <div className='table-responsive'>
+            <table className='table table-sm table-bordered w-75 '>
                 <thead>
-                    <tr>{tableHeaders.map((data) => <th scope="col">{data}</th>)}</tr>
+                    <tr>{tableHeaders.map((data, index) => <th key={(index + 1).toString()} scope="col">{data}</th>)}</tr>
                 </thead>
                 <tbody>
                     <tr>
-                        <td>{listMaker(language_list, 'languages')}</td>
-                        <td>{listMaker(framework_list, 'framework')}</td>
-                        <td>{listMaker(database_list, 'database')}</td>
-                        <td>{listMaker(ops_and_cloud_list, 'ops')}</td>
-                        <td>{listMaker(others_list, 'framework')}</td></tr>
+                        <td key='languages' style={tdNoWrap}>{listMaker(language_list, 'languages')}</td>
+                        <td key='framework' style={tdNoWrap}>{listMaker(framework_list, 'framework')}</td>
+                        <td key='database' style={tdNoWrap}>{listMaker(database_list, 'database')}</td>
+                        <td key='ops' style={tdNoWrap}>{listMaker(ops_and_cloud_list, 'ops')}</td>
+                        <td key='others' style={tdNoWrap}>{listMaker(others_list, 'others')}</td></tr>
                 </tbody>
-
             </table>
+            </div>
         </div>
     )
 }
 
 const About = props => {
-    const pageLoadAnimation = useSpring({ from: { opacity: 0 }, to: { transition: `1.5s fade-in-out`, opacity: 1 } })
-    // ${showHighlight?'btn-secondary':'btn-outline-secondary'}
+    const styleAbout = { fontWeight: '500' }
+    const pageLoadAnimation = useSpring({ from: { opacity: 0 }, to: {transition: `1.5s ease-in`, opacity: 1 }, config:{duration: 1000} , delay:2400 })
+
     const [showHighlight, setShowHighlight] = useState({ hoverShow: false, permaShow: false });
     const displayHighlightState = showHighlight.hoverShow || showHighlight.permaShow
 
-    const highlightBox = displayHighlightState && <HighlightBox />
     return (
-        <animated.section className='containter justify-content-center about' style={pageLoadAnimation}>
-            {gapMaker(10)}
-            <SectionHeader name='About Me' />
-            <IntroBox />
-            <button key='highlights' type="button" className={`btn btn-outline-secondary shadow-none ${displayHighlightState ? ' active' : ''}`} key='Highlights'
-                onMouseEnter={() => setShowHighlight({ hoverShow: true, permaShow: showHighlight.permaShow })}
-                onMouseLeave={() => setShowHighlight({ hoverShow: false, permaShow: showHighlight.permaShow })}
-                onClick={() => setShowHighlight({ hoverShow: true, permaShow: !showHighlight.permaShow })}>Highlights</button>
-            {highlightBox}
-            {gapMaker(5)}
-            <SkillBox />
-            {gapMaker(5)}
-        </animated.section>
+        <section className='about-wrapper' id='About' key='About'>
+             {gapMaker(5)}
+            <Base/>
+            <animated.div className='containter about pl-2 pr-1' style={{ ...styleAbout, ...pageLoadAnimation }}>
+                {gapMaker(5)}
+                <IntroBox/>
+                {gapMaker(5)}
+                <SecondaryHeader>Tech I've worked with</SecondaryHeader>
+                <SkillBox/>
+                {gapMaker(5)}
+                <SecondaryHeader>Highlights</SecondaryHeader>
+                <HighlightBox/>
+            </animated.div>
+        </section>
     )
 }
+//
 
 export { About }
+
+// <button key='highlights' type="button" className={`btn btn-outline-secondary shadow-none ${displayHighlightState ? ' active' : ''}`} key='Highlights'
+// onMouseEnter={() => setShowHighlight({ hoverShow: true, permaShow: showHighlight.permaShow })}
+// onMouseLeave={() => setShowHighlight({ hoverShow: false, permaShow: showHighlight.permaShow })}
+// onClick={() => setShowHighlight({ hoverShow: true, permaShow: !showHighlight.permaShow })}>Highlights</button>

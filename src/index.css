@@ -62,8 +62,8 @@ body {
    -moz-animation-timing-function: linear;
    -o-animation-timing-function: linear;
    animation-timing-function: linear ;
-   color: #556473e0 !important;
-   overflow: scroll !important;
+   color: #556473e0;
+   color: #212529;
 }
 
 code {

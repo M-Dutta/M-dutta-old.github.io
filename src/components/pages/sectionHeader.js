@@ -4,19 +4,23 @@ const sectionHeaderStyle = {
     fontFamily: 'Monoton'
 }
 
-const SectionHeader = props => {
+const secondarySectionHeaderStyle = {
+    fontFamily: 'Cabin Sketch, curive'
+}
 
+const SectionHeader = props => {
+    console.log(props)
     return (
         <div className='container'>
-            <h1 className='row justify-content-start section-header mb-5' style={sectionHeaderStyle}>{props.name}</h1>
+            <h1 className='row justify-content-start section-header mb-5' style={sectionHeaderStyle}>{props.children}</h1>
         </div>
     )
 }
 
 const SecondaryHeader = props => {
     return (
-        <div className='container'>
-            <h2 className='row justify-content-start secondary-section-header mb-5' style={sectionHeaderStyle}>{props.name}</h2>
+        <div>
+            <h2 className='row secondary-section-header'style={secondarySectionHeaderStyle}>{props.children}</h2>
         </div>
     )
 }

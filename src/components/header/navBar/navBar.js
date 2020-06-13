@@ -4,7 +4,6 @@ import './navBar.css'
 import 'bootstrap/dist/css/bootstrap.css';
 import { About } from '../../pages/about/about';
 import { Work } from '../../pages/work/work';
-import { Base } from '../../base/base'
 const navList = [
     { name: 'About', url: '/about' },
     { name: 'Work', url: '/work' },
@@ -24,7 +23,7 @@ const NavBar = props => {
             </ul>
         </nav>
         <Switch>
-            <Route path='/' exact component={Base}></Route>
+            <Route path='/' exact component={About}></Route>
             <Route path='/about' component={About}></Route>
             <Route path='/work' ></Route>
         </Switch>
