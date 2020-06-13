@@ -2,8 +2,8 @@ import React from 'react';
 import { BrowserRouter as Router, Switch, Route, NavLink } from 'react-router-dom'
 import './navBar.css'
 import 'bootstrap/dist/css/bootstrap.css';
-import { About } from '../../pages/about/about';
-import { Work } from '../../pages/work/work';
+import { About } from '../pages/about/about';
+import { Work } from '../pages/work/work';
 const navList = [
     { name: 'About', url: '/about' },
     { name: 'Work', url: '/work' },
@@ -16,7 +16,8 @@ const NavBar = props => {
             <NavLink className='link' to={data.url}>{data.name}</NavLink>
         </li>
     )
-    return (<Router>
+    return (
+        <div>
         <nav className='navbar justify-content-center'>
             <ul className='nav-list'>
                 {navItems}
@@ -27,8 +28,7 @@ const NavBar = props => {
             <Route path='/about' component={About}></Route>
             <Route path='/work' ></Route>
         </Switch>
-    </Router>
-    
+        </div>
     )
 }
 
