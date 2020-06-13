@@ -2,7 +2,8 @@ import React, { useState, useEffect } from 'react'
 import './about.css'
 import { SectionHeader, SecondaryHeader } from '../sectionHeader'
 import { gapMaker } from '../../utils'
-import { useSpring, useTransition, animated } from 'react-spring'
+import { useTrail, useSpring, useSprings, useTransition, animated } from 'react-spring'
+import {Spring} from 'react-spring/renderprops' 
 import { Base } from './base'
 
 const intro_line_list = [`I'm a Full-Stack Software Engineer based in Atlanta, GA.`,
@@ -82,7 +83,7 @@ const HighlightBox = props => {
     })
     return transitions.map(({ item, key, animated_props }) =>
         <div className='container'>
-        <animated.div className='container highlight-box w-75 pt-2 pr-1 '>
+        <animated.div className='container highlight-box w-70 pt-2 pr-1 '>
                 {listMaker(highlight_list, 'highlight', customListStyle)}
         </animated.div>
         </div>
@@ -92,25 +93,18 @@ const HighlightBox = props => {
 
 const About = props => {
     const styleAbout = { fontWeight: '500' }
-    const pageLoadAnimation = useSpring({ from: { opacity: 0 }, to: { transition: `1.5s ease-in`, opacity: 1 }, config: { duration: 1000 }, delay: 2400 })
-
     const [showHighlight, setShowHighlight] = useState({ hoverShow: false, permaShow: false });
-    const displayHighlightState = showHighlight.hoverShow || showHighlight.permaShow
+    const items = [<IntroBox />, <SecondaryHeader>Tech I've worked with</SecondaryHeader>, <SkillBox />, <SecondaryHeader>Highlights</SecondaryHeader>,
+    <HighlightBox />]
+    const pageLoadAnimations = useTrail(items.length, { from: { opacity: 0 }, 
+        to: { transition: `1.5s ease-in`, opacity: 1 }, config: { duration: 1000 }, delay: 2400 })
 
     return (
-        <section className='about-wrapper' id='About' key='About'>
-            {gapMaker(5)}
+        <section className='about-wrapper min-vh-100' id='About' key='About'>
+            <div className='about-contents pt-6'>
             <Base />
-            <animated.div className='containter about pl-2 pr-1' style={{ ...styleAbout, ...pageLoadAnimation }}>
-                {gapMaker(5)}
-                <IntroBox />
-                {gapMaker(5)}
-                <SecondaryHeader>Tech I've worked with</SecondaryHeader>
-                <SkillBox />
-                {gapMaker(5)}
-                <SecondaryHeader>Highlights</SecondaryHeader>
-                <HighlightBox />
-            </animated.div>
+            {pageLoadAnimations.map( (props , index) => <animated.div style={{...props, ...styleAbout}}  >{items[index]}</animated.div> )} 
+            </div>
         </section>
     )
 }

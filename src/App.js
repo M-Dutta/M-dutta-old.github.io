@@ -9,29 +9,19 @@ import './App.css';
 
 function App() {
   return (
-    <div className='App overflow-auto'>
-      <Router>
-        <NavBar></NavBar>
-      </Router>
+    <Router>
+      <div className='App overflow-auto'>
+        <NavBar/>
+        <div className='section-wrapper '>
+        <Switch>
+        <Route path='/' exact component={About}></Route>
+        <Route path='/about' component={About}></Route>
+        <Route path='/work' ></Route>
+      </Switch>
+      </div>
     </div>
+    </Router>
   );
 }
 
 export default App;
-
-{/* <div className="App">
-<header className="App-header">
-  <img src={logo} className="App-logo" alt="logo" />
-  <p>
-    Edit <code>src/App.js</code> and save to reload.
-  </p>
-  <a
-    className="App-link"
-    href="https://reactjs.org"
-    target="_blank"
-    rel="noopener noreferrer"
-  >
-    Learn React
-  </a>
-</header>
-</div> */}

@@ -17,18 +17,11 @@ const NavBar = props => {
         </li>
     )
     return (
-        <div>
-        <nav className='navbar justify-content-center'>
+        <nav className='navbar shadow-sm rounded-circle justify-content-center fixed-top'>
             <ul className='nav-list'>
                 {navItems}
             </ul>
         </nav>
-        <Switch>
-            <Route path='/' exact component={About}></Route>
-            <Route path='/about' component={About}></Route>
-            <Route path='/work' ></Route>
-        </Switch>
-        </div>
     )
 }
 
