@@ -8,20 +8,38 @@ import 'bootstrap/dist/css/bootstrap.min.css';
 import './App.css';
 
 function App() {
-  return (
-    <Router>
-      <div className='App overflow-auto'>
-        <NavBar/>
-        <div className='section-wrapper '>
-        <Switch>
-        <Redirect exact path='/' to='/about'></Redirect>
-        <Route path='/about' component={About}></Route>
-        <Route path='/work' ></Route>
-      </Switch>
-      </div>
+  
+return (
+  <Router>
+    <div className='App overflow-auto'>
+      <NavBar/>
+      <div className='section-wrapper '>
+      <Switch>
+      <Redirect exact path='/' to='/about'></Redirect>
+      <Route path='/about'component={About}></Route>
+      <Route path='/work' ></Route>
+    </Switch>
     </div>
-    </Router>
-  );
+  </div>
+  </Router>
+) 
+
 }
 
 export default App;
+
+
+// return (
+//   <Router>
+//     <div className='App overflow-auto'>
+//       <NavBar/>
+//       <div className='section-wrapper '>
+//       <Switch>
+//       <Redirect exact path='/' to='/about'></Redirect>
+//       <Route path='/about' component={About}></Route>
+//       <Route path='/work' ></Route>
+//     </Switch>
+//     </div>
+//   </div>
+//   </Router>
+// );

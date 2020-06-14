@@ -26,7 +26,7 @@
     transition: opacity 0.5s ease-in;
 }
 
-.link.active {
-    color: #30383cbf;
-    opacity: 1;
+
+a:hover {
+    color: white !important;  
 }
