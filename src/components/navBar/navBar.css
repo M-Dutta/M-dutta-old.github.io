@@ -6,6 +6,7 @@
     position: relative;
     float: right;
     display: flex;
+    margin-bottom: 0.3em;
 }
 .nav-list li:first-child a {
     margin-left: 0;

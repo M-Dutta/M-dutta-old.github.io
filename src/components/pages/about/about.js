@@ -100,7 +100,7 @@ const About = props => {
         to: { transition: `1.5s ease-in`, opacity: 1 }, config: { duration: 1000 }, delay: 2400 })
 
     return (
-        <section className='about-wrapper min-vh-100' id='About' key='About'>
+        <section className='about-wrapper min-vh-100 px-2' id='About' key='About'>
             <div className='about-contents pt-6'>
             <Base />
             {pageLoadAnimations.map( (props , index) => <animated.div style={{...props, ...styleAbout}}  >{items[index]}</animated.div> )} 

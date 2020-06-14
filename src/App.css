@@ -1,5 +1,5 @@
 :root {
-  --transition_time:0.3s;
+  --transition_time: 0.3s;
   --trainsition_type: linear;
 }
 
@@ -27,6 +27,11 @@
   max-width: 70%!important;
 }
 
+.rounded-bottom-1 {
+  border-bottom-right-radius: 1.25rem!important;
+  border-bottom-left-radius: 1.25rem!important;
+}
+
 @media all and (max-width: 1200px) {
   /* screen size until 1200px */
   body {
@@ -36,23 +41,23 @@
 
 @media all and (max-width: 1000px) {
   /* screen size until 1000px */
-
   .w-75 {
     width: 100%!important;
   }
-  
   .w-70 {
     max-width: 100%!important;
   }
-  
 }
 
-@media all and (max-width: 500px) {
-
-}
+@media all and (max-width: 500px) {}
 
 /*fonts*/
-@import url(https://fonts.googleapis.com/css2?family=Monoton); /*Used for Headers*/
-@import url(https://fonts.googleapis.com/css2?family=Dancing+Script:wght@700&family=Great+Vibes); /*header and intro*/
+
+@import url(https://fonts.googleapis.com/css2?family=Monoton);
+/*Used for Headers*/
+
+@import url(https://fonts.googleapis.com/css2?family=Dancing+Script:wght@700&family=Great+Vibes);
+/*header and intro*/
+
 @import url(https://fonts.googleapis.com/css2?family=Comfortaa);
 @import url(https://fonts.googleapis.com/css2?family=Cabin+Sketch:wght@700);

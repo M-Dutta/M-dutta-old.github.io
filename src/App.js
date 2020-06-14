@@ -14,7 +14,7 @@ function App() {
         <NavBar/>
         <div className='section-wrapper '>
         <Switch>
-        <Route path='/' exact component={About}></Route>
+        <Redirect exact path='/' to='/about'></Redirect>
         <Route path='/about' component={About}></Route>
         <Route path='/work' ></Route>
       </Switch>
