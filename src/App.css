@@ -55,9 +55,11 @@
 
 @import url(https://fonts.googleapis.com/css2?family=Monoton);
 /*Used for Headers*/
-
 @import url(https://fonts.googleapis.com/css2?family=Dancing+Script:wght@700&family=Great+Vibes);
 /*header and intro*/
 
-@import url(https://fonts.googleapis.com/css2?family=Comfortaa);
-@import url(https://fonts.googleapis.com/css2?family=Cabin+Sketch:wght@700);
+@import url(https://fonts.googleapis.com/css2?family=Comfortaa); /*comforta */
+@import url(https://fonts.googleapis.com/css2?family=Cabin+Sketch:wght@700); /*Cabin Sketch */
+@import url(https://fonts.googleapis.com/css2?family=MuseoModerno:wght@300;400;500); /*'MuseoModerno', cursive; */
+@import url(https://fonts.googleapis.com/css2?family=Sriracha); /*'Sriracha', cursive; */
+@import url(https://fonts.googleapis.com/css2?Raleway:wght@300;400;500;600); /*'Raleway', sans-serif; */

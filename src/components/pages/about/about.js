@@ -1,15 +1,30 @@
 import React, { useState, useEffect } from 'react'
-import './about.css'
+
 import { SectionHeader, SecondaryHeader } from '../sectionHeader'
 import { gapMaker } from '../../utils'
-import { useTrail, useSpring, useSprings, useTransition, animated } from 'react-spring'
-import {Spring} from 'react-spring/renderprops' 
-import { Base } from './base'
+import { useTrail, useSpring, useSprings, useTransition, animated, } from 'react-spring'
+import { Spring } from 'react-spring/renderprops'
+import { Intro } from './intro/intro'
+import { Container, CssBaseline, Typography, Grid, Slide, Zoom } from '@material-ui/core';
+import './about.css'
+import './circles.css'
+
+const customStyle = {
+    coverView: {minHeight:'100vh', minWidth:'100vw'},
+    gridView : {minHeight:'90vh', minWidth:'100vw'}    
+}
+
 
 const intro_line_list = [`I'm a Full-Stack Software Engineer based in Atlanta, GA.`,
     'I like getting my hands dirty with a vast array of technology and prefer putting on several different.',
     'I also enjoy working on system architecture and design to build scaleable and efficient Micro-services.'
 ]
+
+const introParagraph = (<p>
+    I'm a Full-Stack Software Engineer based in Atlanta, GA. <br/>
+    I like getting my hands dirty with a vast array of technology and prefer putting on several different.
+
+</p>)
 
 const highlight_list = [
     `Converted legacy User and API Authentication System for Web and IOS application to Oauth2.0 without breaking Compatibility`,
@@ -36,7 +51,7 @@ const listMaker = (itemList, className, listStyle = {}, center = false) => {
     let items = itemList.map((data, index) => {
         return (
             <li key={(index).toString()}
-                className={`${className}-items ${center?'row justify-content-center': ''} list-item ${(className === 'intro' && index === 0) ? 'mb-2' : ''}  
+                className={`${className}-items ${center ? 'row justify-content-center' : ''} list-item ${(className === 'intro' && index === 0) ? 'mb-2' : ''}  
                 ${className === 'highlight' ? 'mt-2' : ''}`}>{data}
             </li>
         )
@@ -46,28 +61,28 @@ const listMaker = (itemList, className, listStyle = {}, center = false) => {
 }
 
 const IntroBox = props => {
-    return <div className='container intro-box'>{listMaker(intro_line_list, 'intro', {}, true)}</div>
+    return <Container>{listMaker(intro_line_list, 'intro', {}, true)}</Container>
 }
 
 const SkillBox = props => {
 
     return (
         <div className='container'>
-        <div className=' table-responsive'>
-            <table className='table table-sm table-bordered w-75 mx-auto w-auto'>
-                <thead>
-                    <tr>{tableHeaders.map((data, index) => <th key={(index + 1).toString()} scope="col" style={noWrap}>{data}</th>)}</tr>
-                </thead>
-                <tbody>
-                    <tr>
-                        <td key='languages' style={noWrap}>{listMaker(language_list, 'languages')}</td>
-                        <td key='framework' style={noWrap}>{listMaker(framework_list, 'framework')}</td>
-                        <td key='database' style={noWrap}>{listMaker(database_list, 'database')}</td>
-                        <td key='ops' style={noWrap}>{listMaker(ops_and_cloud_list, 'ops')}</td>
-                        <td key='others' style={noWrap}>{listMaker(others_list, 'others')}</td></tr>
-                </tbody>
-            </table>
-        </div>
+            <div className=' table-responsive'>
+                <table className='table table-sm table-bordered w-75 mx-auto w-auto'>
+                    <thead>
+                        <tr>{tableHeaders.map((data, index) => <th key={(index + 1).toString()} scope="col" style={noWrap}>{data}</th>)}</tr>
+                    </thead>
+                    <tbody>
+                        <tr>
+                            <td key='languages' style={noWrap}>{listMaker(language_list, 'languages')}</td>
+                            <td key='framework' style={noWrap}>{listMaker(framework_list, 'framework')}</td>
+                            <td key='database' style={noWrap}>{listMaker(database_list, 'database')}</td>
+                            <td key='ops' style={noWrap}>{listMaker(ops_and_cloud_list, 'ops')}</td>
+                            <td key='others' style={noWrap}>{listMaker(others_list, 'others')}</td></tr>
+                    </tbody>
+                </table>
+            </div>
         </div>
     )
 }
@@ -83,32 +98,55 @@ const HighlightBox = props => {
     })
     return transitions.map(({ item, key, animated_props }) =>
         <div className='container'>
-        <animated.div className='container highlight-box w-70 pt-2 pr-1 '>
+            <animated.div className='container highlight-box w-70 pt-2 pr-1 '>
                 {listMaker(highlight_list, 'highlight', customListStyle)}
-        </animated.div>
+            </animated.div>
         </div>
     )
 
 }
 
-const About = props => {
-    const styleAbout = { fontWeight: '500' }
-    const [showHighlight, setShowHighlight] = useState({ hoverShow: false, permaShow: false });
-    const items = [<IntroBox />, <SecondaryHeader>Tech I've worked with</SecondaryHeader>, <SkillBox />, <SecondaryHeader>Highlights</SecondaryHeader>,
-    <HighlightBox />]
-    const pageLoadAnimations = useTrail(items.length, { from: { opacity: 0 }, 
-        to: { transition: `1.5s ease-in`, opacity: 1 }, config: { duration: 1000 }, delay: 2400 })
 
+const Circle = () => {
+    return(
+        <div className='circle'></div>
+    )
+
+}
+const About = props => {
     return (
-        <section className='about-wrapper min-vh-100 px-2' id='About' key='About'>
-            <div className='about-contents pt-6'>
-            <Base />
-            {pageLoadAnimations.map( (props , index) => <animated.div style={{...props, ...styleAbout}}  >{items[index]}</animated.div> )} 
-            </div>
-        </section>
+        <div className='intro'>
+            <Container style={customStyle.coverView}>
+                <Grid container direction="column" justify="center" alignItems="center" spacing={5} style={customStyle.gridView}>
+                <Grid item><Circle /></Grid>
+                   <Grid item ><Intro /></Grid>
+                </Grid>
+
+            </Container>
+        </div>
     )
 }
-//
+
+
+
+
+// const About = props => {
+//     const styleAbout = { fontWeight: '500' }
+//     const [showHighlight, setShowHighlight] = useState({ hoverShow: false, permaShow: false });
+//     const items = [<IntroBox />, <SecondaryHeader>Tech I've worked with</SecondaryHeader>, <SkillBox />, <SecondaryHeader>Highlights</SecondaryHeader>,
+//     <HighlightBox />]
+//     const pageLoadAnimations = useTrail(items.length, { from: { opacity: 0 }, 
+//         to: { transition: `1.5s ease-in`, opacity: 1 }, config: { duration: 1000 }, delay: 2400 })
+
+//     return (
+//         <section className='about-wrapper min-vh-100 px-2' id='About' key='About'>
+//             <div className='about-contents pt-6'>
+//             <Base />
+//             {pageLoadAnimations.map( (props , index) => <animated.div style={{...props, ...styleAbout}}  >{items[index]}</animated.div> )} 
+//             </div>
+//         </section>
+//     )
+// }
 
 export { About }
 
