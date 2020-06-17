@@ -1,37 +1,21 @@
-import React, { useState, useEffect } from 'react';
-import { BrowserRouter as Router, Switch, Route, NavLink } from 'react-router-dom'
+import React from 'react';
+import { BrowserRouter as Router, Switch, Route } from 'react-router-dom'
+import { HashLink } from 'react-router-hash-link';
 import './navBar.css'
 import 'bootstrap/dist/css/bootstrap.css';
-import { About } from '../pages/about/about';
-import { Work } from '../pages/work/work';
-import { Transition } from 'react-spring/renderprops';
 
+import {  makeStyles } from '@material-ui/core/styles';
+import { AppBar, Tab, Tabs, Fade } from '@material-ui/core';
 
-import { createStyles, makeStyles, Theme } from '@material-ui/core/styles';
-import Typography from '@material-ui/core/Typography';
-import Button from '@material-ui/core/Button';
-import IconButton from '@material-ui/core/IconButton';
-import MenuIcon from '@material-ui/core/MenuItem/MenuItem';
-import { AppBar, Tab, Tabs, Container, Fade } from '@material-ui/core';
-import TypoGraphy from '@material-ui/core/Typography'
-import { borders } from '@material-ui/system';
-import { MuiThemeProvider, createMuiTheme } from "@material-ui/core/styles";
-
-const navList = [
-  { name: 'About', url: '/about' },
-  { name: 'Work', url: '/work' },
-  { name: 'Site-Info', url: '/site-info' }
-]
-
+// eslint-disable-next-line
 const baseDiv = document.body.childNodes[1]
-const topLimit = 30
 
 
 const useStyles = makeStyles({
-  Mui_root: {
+  root: {
       fontFamily: "Cabin Sketch",
       fontSize: 'larger',
-      opacity: .5,
+      opacity: 1,
       "&:hover": {
         textDecoration: 'underline'
       },
@@ -45,15 +29,21 @@ const NavBar = props => {
   const navBarStyle = useStyles()
   return (
     <div className='nav-bar'>
-      <Fade in={true} timeout={1000}>
-      <AppBar position='static'>
-        <Tabs centered={true}>
-          <Tab classes={{root:navBarStyle.Mui_root}} label='About' to='/about' component={NavLink} />
-          <Tab classes={{root:navBarStyle.Mui_root}} label="Work" to='/work' component={NavLink} />
-          <Tab classes={{root:navBarStyle.Mui_root}} label="site-info" to='/site-info' component={NavLink} />
-        </Tabs>
-      </AppBar>
-      </Fade>
+		<Fade in={true} timeout={1000}>
+			<AppBar position='fixed'>
+				<Tabs centered={true}>
+					<Router>
+						<Tab className={navBarStyle.root} label='About' smooth  to='/#About' component={HashLink} />
+						<Tab className={navBarStyle.root} label="Work" smooth to='/#Work' component={HashLink} />
+						<Tab className={navBarStyle.root} label="site-info" smooth to='/site-info' component={HashLink} />
+						<Switch>
+							<Route path="/#About" to='/#About'/>
+							<Route path="/#Work" to='/#Work'/>
+						</Switch>
+					</Router>
+				</Tabs>
+		</AppBar>
+    	</Fade>
     </div>
   )
 }
