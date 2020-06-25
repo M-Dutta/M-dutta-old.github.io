@@ -1,13 +1,14 @@
 import React from 'react'
-import { Container, Grid, Box, Paper} from '@material-ui/core';
+import { Container, Grid, Box, Paper, Slide, Fade} from '@material-ui/core';
 import { Card, CardMedia, CardContent, Typography, makeStyles    } from '@material-ui/core';
 import './about.css'
 
 
-const pythonLogo = require('../../../static/python-logo.png') 
-const awsLogo = require('../../../static/aws.png') 
-const database = require('../../../static/dynamo.png') 
-const docker = require('../../../static/docker.png') 
+const pythonLogo = require('../../static/python-logo.png') 
+const awsLogo = require('../../static/aws.png') 
+const database = require('../../static/dynamo.png') 
+const docker = require('../../static/docker.png') 
+const myPic = require('../../static/me.jpg') 
 
 
 
@@ -32,14 +33,14 @@ const customStyle = {
 }
 
 const styles = makeStyles({
+    sectionBase: { minHeight: '100vh', borderColor:'#3f51b4' },
     card: {width: 300}, content: {paddingLeft:'8px', paddingRight:'8px'}, 
     media: {maxWidth: 300, maxHeight:30, objectFit: 'contain' },
     typography: {fontFamily: 'Raleway, sans-serif'}
-
 })
 
 const Picture = props => {
-    return <img src={require('../../../static/me.jpg')} style={customStyle.picture} alt='me'></img>
+    return <img src={myPic} style={customStyle.picture} alt='me'></img>
 }
 
 const SkillItem = props => {
@@ -73,7 +74,7 @@ const SkillBox = props => {
             <Box p={3} minWidth={250}>
                 <Box component='h2' pb={2}>{skillSetName}</Box>
                 <Grid container direction="column" justify="space-evenly" alignItems="flex-start" spacing={1}>
-                {skillSetItem}
+                {skillSetItem}  
                 </Grid>
             </Box>
         </Paper>
@@ -118,28 +119,45 @@ const KeyPoints = props => {
 
 
 const About = props => {
+    const style= styles()
     return (
-        <div id='About'>
-        <Box className='about'  borderTop={5} borderColor='#3f51b4'>
+    <Box id= 'About' className={`about ${style.sectionBase}`} borderTop={5} pb={10}>
+        <Fade in={true} timeout={1000}>
         <Box pt={10} pb={5}>
             <Grid container direction="column" alignItems="center" justify="center" spacing={3}><h1>About</h1></Grid>
         </Box>
-        
+        </Fade>
         <Grid container direction="row" justify="center" alignItems="flex-start" spacing={3}>
-            <Grid item className='left-grid'><Container><LeftGridItems/></Container></Grid>
-            <Grid item className='right-grid'><KeyPoints/></Grid>
+            <Slide in={true} direction='right' timeout={1000}>
+                <Grid item className='left-grid'><Container><LeftGridItems/></Container></Grid>
+            </Slide>
+            <Slide in={true} direction='left' timeout={1000}>
+                <Grid item className='right-grid'><KeyPoints/></Grid>
+            </Slide>
         </Grid>
+        <Fade in={true} timeout={1000}>
         <Box pt={10} pb={5}>
             <Grid container box direction="column" alignItems="center" justify="center" spacing={3}><h1>Tech</h1></Grid>
         </Box>
+        </Fade>
         <Grid container direction="row" justify="center" alignItems="flex-start" spacing={1}>
-                <Grid item><Container><SkillBox skillSetName='Languages' skillSetItem={language_list} subskill={true}/></Container></Grid>
-                <Grid item><Container><SkillBox skillSetName='Databases' skillSetItem={database_list} subskill={true}/></Container></Grid>
-                <Grid item><Container><SkillBox skillSetName='Cloud/Ops' skillSetItem={ops_and_cloud_list} subskill={false}/></Container></Grid>
-                <Grid item><Container><SkillBox skillSetName='Other Skills' skillSetItem={others_list} subskill={false}/></Container></Grid>
-        </Grid>  
+            <Slide in={true} direction='right' timeout={1000}>
+            <Grid item><Container><SkillBox skillSetName='Languages' skillSetItem={language_list} subskill={true}/></Container></Grid>
+            </Slide>   
+
+            <Slide in={true} direction='right' timeout={1100}>         
+            <Grid item><Container><SkillBox skillSetName='Databases' skillSetItem={database_list} subskill={true}/></Container></Grid>
+            </Slide> 
+
+            <Slide in={true} direction='right' timeout={1200}>
+            <Grid item><Container><SkillBox skillSetName='Cloud/Ops' skillSetItem={ops_and_cloud_list} subskill={false}/></Container></Grid>
+            </Slide>
+
+            <Slide in={true} direction='right' timeout={1300}> 
+            <Grid item><Container><SkillBox skillSetName='Other Skills' skillSetItem={others_list} subskill={false}/></Container></Grid>
+            </Slide> 
+        </Grid>
     </Box>
-    </div>
     )
 }
 

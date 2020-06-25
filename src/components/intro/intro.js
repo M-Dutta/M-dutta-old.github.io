@@ -18,8 +18,8 @@ const Circle = props => {
 const Name = props => {
     return (
         <Grid container direction="column" alignItems="center" justify="center" className='name' style={{objectFit:'scale-down'}}>
-            <Slide in={true} direction='left' timeout={1000}><div className='text'>I'm Mishuk!</div></Slide>
-            <Slide in={true} direction='right' timeout={1000}><div className='text'>I'm a full-stack software engineer</div></Slide>
+            <Slide in={true} direction='left' timeout={1000}><div className='resizeable-text'>I'm Mishuk!</div></Slide>
+            <Slide in={true} direction='right' timeout={1000}><div className='resizeable-text'>I'm a full-stack software engineer</div></Slide>
         </Grid>
     )
 }

@@ -65,3 +65,7 @@ h1 {
 h2 {
   font-family: MuseoModerno;
 }
+
+:focus {
+  outline: 0px !important;
+}

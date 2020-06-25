@@ -1,0 +1,26 @@
+.footer-resizeable-text {
+    font-family: 'Raleway', sans-serif;
+    color: white;
+}
+
+@media all and (max-width: 1000px) {
+    .footer-resizeable-text {
+    }
+}
+
+@media all and (max-width: 660px) {
+    .footer-resizeable-text {
+    }
+}
+
+@media all and (max-width: 460px) {
+    .footer-resizeable-text {
+
+    } 
+}
+
+@media all and (max-width: 360px) {
+    .footer-resizeable-text {
+
+    }
+}

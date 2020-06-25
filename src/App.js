@@ -1,9 +1,11 @@
 import React from 'react';
 import { NavBar } from './components/navBar/navBar'
 import { Intro } from './components/intro/intro'
-import { About } from './components/pages/about/about'
+import { About } from './components/about/about'
+import { Work } from './components/work/work'
+import { Footer } from './components/footer/footer'
 import { BrowserRouter as Router} from 'react-router-dom'
-import { Box} from '@material-ui/core';
+import { Box } from '@material-ui/core';
 import 'bootstrap/dist/css/bootstrap.min.css';
 import './App.css';
 
@@ -17,7 +19,9 @@ function App() {
           <Intro/>
         </Box>
         <About/>
+        <Work/>
       </div>
+      <Footer/>
     </Router>
   )
 
