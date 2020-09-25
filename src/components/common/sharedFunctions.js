@@ -1,10 +1,10 @@
 import React from 'react'
-import { Grid, Box, Fade } from '@material-ui/core';
+import { Grid, Box, Fade, makeStyles } from '@material-ui/core';
 
-const Header = (headerName) => {
+const Header = (headerName, paddingTop=0, paddingBottom=5) => {
     return (
         <Fade in={true} timeout={2000}>
-        <Box pt={10} pb={8}>
+        <Box pt={paddingTop} pb={paddingBottom}>
             <Grid container component='h1' alignItems="center" justify="center">
                 {headerName}
             </Grid>
@@ -18,4 +18,16 @@ const elevate = {
     backgroundColor: 'rgb(19 17 17 / 84%)'
 };
 
-export { Header, elevate }
+const GapMaker = (gaps=1) => {
+    const temp = new Array(gaps, '_')
+    let brs = temp.map((temp, index) => <br/>)
+    console.log(brs)
+    return brs
+}
+
+
+const sharedStylesInitializer = makeStyles({
+    sectionBase: { minHeight: '92vh', paddingTop:'10vh' }
+})
+
+export { Header, elevate, sharedStylesInitializer, GapMaker }

@@ -29,7 +29,6 @@ const Footer = props => {
                     <IconButton className='github-link' onClick={() => window.open(gitHubLink)}>
                         <GitHubIcon fontSize='small'/>
                     </IconButton>
-
                 </Grid>
             </Grid>
         </Box>
