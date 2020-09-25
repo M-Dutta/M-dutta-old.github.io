@@ -1,0 +1,46 @@
+.resizeable-text {
+    font-size: 2.2em;
+    font-family: 'Raleway', sans-serif;
+    font-weight: 500;
+    color: aliceblue;
+}
+
+@media all and (max-width: 1000px) {
+    .resizeable-text {
+        font-size: 2.2em;
+    }
+    .circle {
+        width: 25em;
+        height: 25em;   
+    }
+}
+
+@media all and (max-width: 660px) {
+    .resizeable-text {
+        font-size: 1.5em;
+    }
+    .circle {
+        width: 23em;
+        height: 23em;   
+    }
+}
+
+@media all and (max-width: 460px) {
+    .resizeable-text {
+        font-size: 1.3em;
+    }
+    .circle {
+        width: 18em;
+        height: 18em;   
+    }    
+}
+
+@media all and (max-width: 360px) {
+    .resizeable-text {
+        font-size: 1.2em;
+    }
+    .circle {
+        width: 12em;
+        height: 12em;   
+    }
+}

@@ -32,6 +32,23 @@
   border-bottom-left-radius: 1.25rem!important;
 }
 
+h1 {
+  font-family: MuseoModerno;
+  color: aliceblue;
+
+  border-width: 5px 0px 5px 0px;
+}
+
+h2 {
+  font-family: MuseoModerno;
+  color: aliceblue;
+}
+
+:focus {
+  outline: 0px !important;
+}
+
+
 @media all and (max-width: 1000px) {
   /* screen size until 1000px */
   .w-75 {
@@ -58,14 +75,7 @@
 @import url(https://fonts.googleapis.com/css2?Raleway:wght@300;400;500;600); /*'Raleway', sans-serif; */
 @import url(https://fonts.googleapis.com/css2?family=Raleway:ital,wght@0,300;0,400;0,500;0,600;1,300;1,400;1,500;1,600); /*Roboto*/
 
-h1 {
-  font-family: MuseoModerno;
-}
-
-h2 {
-  font-family: MuseoModerno;
-}
-
-:focus {
-  outline: 0px !important;
+body {
+  background-color: #111111;
+  background-image: url("../src/static/black-1600.png")
 }

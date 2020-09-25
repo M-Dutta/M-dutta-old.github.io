@@ -40,7 +40,7 @@ const projectData = [
                     ]
 
 const styles = makeStyles({
-    sectionBase: { minHeight: '100vh', borderColor:'#3f51b4' },
+    sectionBase: { minHeight: '100vh', maxWidth:'80vh'},
     card: { maxWidth: 300, borderRadius: 7, },
     content: { paddingLeft: '8px', paddingRight: '8px' },
     media: { maxWidth: 300, height: 200, objectFit:'contain' },
@@ -104,7 +104,7 @@ const ProjectBox = props => {
 const Work = props => {
     const style = styles()
     return (
-        <Box id='Work' className={style.sectionBase} borderTop={5} mb={10}>
+        <Box id='Work' className={style.sectionBase} mb={10}>
             <Fade in={true} timeout={1000}>
             <Box pt={10} pb={10}>
                 <Grid container direction="column" alignItems="center" justify="center" spacing={1}>
