@@ -28,7 +28,7 @@ const GapMaker = (gaps = 1) => {
 
 
 const sharedStylesInitializer = makeStyles({
-    sectionBase: { minHeight: '92vh', paddingTop: '10vh' }
+    sectionBase: { minHeight: '93vh', paddingTop: '10vh' }
 })
 
 export { Header, elevate, sharedStylesInitializer, GapMaker }
