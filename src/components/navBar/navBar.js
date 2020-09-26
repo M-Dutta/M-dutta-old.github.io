@@ -8,14 +8,17 @@ import { makeStyles } from '@material-ui/core/styles';
 import { AppBar, Tab, Tabs, Fade } from '@material-ui/core';
 
 const useStyles = makeStyles({
-  navBar: { backgroundColor: 'rgb(19 17 17 / 84%)' },
+  navBar: { backgroundColor: 'rgb(255 255 255 / 78%)' },
   fontStyle: {
     fontFamily: "Cabin Sketch",
     fontSize: 'larger',
-    color: 'aliceblue',
+    color: '#7f8c8d',
     opacity: 1,
     "&:hover": {
-      textDecoration: 'underline'
+      textDecoration: 'underline',
+      // color: '#09C269',
+      color: '#2d8cff'
+      
     },
     "&.active": {
       opacity: 1

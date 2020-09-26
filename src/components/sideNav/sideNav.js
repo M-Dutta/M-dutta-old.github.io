@@ -13,13 +13,13 @@ const ExternalUrls = props => {
         <Slide in={true} direction='left' timeout={1500}>
         <Grid className='external-urls' container  direction='column' alignContent='baseline' justify='center'>
             <Grid item>
-                <IconButton className='external-url-icons' color='primary' onClick={() => window.open(linkedInLink)}>
-                    <LinkedInIcon fontSize='small' />
+                <IconButton  style={{color:'#0b73b1'}} onClick={() => window.open(linkedInLink)}>
+                    <LinkedInIcon className='external-url-icons'/>
                 </IconButton>
             </Grid>
             <Grid item>
-                <IconButton className='external-url-icons' color='primary' onClick={() => window.open(gitHubLink)}>
-                    <GitHubIcon fontSize='small' />
+                <IconButton style={{color:'#24292e'}} onClick={() => window.open(gitHubLink)}>
+                    <GitHubIcon className='external-url-icons'/>
                 </IconButton>
             </Grid>
         </Grid>

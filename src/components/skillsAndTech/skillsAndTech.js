@@ -1,6 +1,6 @@
 import React from 'react'
 import { Container, Card, Grid, Box, Paper, CardMedia, CardContent, Typography, Slide, makeStyles } from '@material-ui/core';
-import { Header, elevate, sharedStylesInitializer } from '../common/sharedFunctions'
+import { Header, GapMaker, sharedStylesInitializer } from '../common/sharedFunctions'
 
 const pythonLogo = require('../../static/python-logo.png')
 const awsLogo = require('../../static/aws.png')
@@ -9,18 +9,18 @@ const docker = require('../../static/docker.png')
 
 const styles = makeStyles({
     sectionBase: { minHeight: '100vh' },
-    highlightsCard: {
-        width: 250, height: 230, backgroundColor: '#171515', boxShadow: '8px 9px 11px #000000db',
+    highlightsBox: {
+        width: 250, height: 230, backgroundColor:'#fafafa',
         transition: 'transform 2s, box-shadow 1s',
-        "&:hover": { transform: 'translate(-4px, -4px)', boxShadow: '13px 17px 11px #000000db' }
+        "&:hover": { transform: 'translate(-2px, -2px)', boxShadow: '8px 10px 3px -2px rgba(0,0,0,0.2)' }
     },
-    techPaper: {
-        maxWidth: 250, height: 280, backgroundColor: '#171515', boxShadow: '8px 9px 11px #000000db',
+    techBox: {
+        maxWidth: 250, height: 280,  backgroundColor:'#fafafa',
         transition: 'transform 2s, box-shadow 1s',
-        "&:hover": { transform: 'translate(-4px, -4px)', boxShadow: '13px 17px 11px #000000db' }
+        "&:hover": { transform: 'translate(-2px, -2px)', boxShadow: '8px 10px 3px -2px rgba(0,0,0,0.2)' }
     },
     media: { maxWidth: 100, height: 100, objectFit: 'contain' },
-    typography: { fontFamily: 'Raleway, sans-serif', color: 'aliceblue' }
+    typography: { fontFamily: 'Raleway, sans-serif', color: '#3333333'}
 })
 
 
@@ -37,16 +37,14 @@ const others_list = ['Rest API', 'Micro-services', 'Jenkins', 'Agile', 'Scrum']
 const KeyPoints = props => {
 
     const Point = props => {
-        const cardStyles = styles();
+        const boxStyles = styles();
         return (
-            <Card raised={true} className={cardStyles.highlightsCard}>
-                <CardContent className={cardStyles.content}>
-                    <Grid container direction="column" justify="center" alignItems="center" spacing={3}>
-                        <Grid item><CardMedia component="img" className={cardStyles.media} src={props.image} /></Grid>
-                        <Grid item><Typography variant="subtitle1" className={cardStyles.typography}>{props.desc}</Typography></Grid>
-                    </Grid>
-                </CardContent>
-            </Card>
+            <Paper elevation={3} className={boxStyles.highlightsBox}>
+                <Grid container direction="column" justify="center" alignItems="center">
+                    <Grid item><Container component="img" className={boxStyles.media} src={props.image} /></Grid>
+                    <Grid item><Container component='Typography' variant="subtitle1" className={boxStyles.typography}>{props.desc}</Container></Grid>
+                </Grid>
+            </Paper>
         )
     }
 
@@ -83,7 +81,7 @@ const SkillBox = props => {
     let skillSetItem = null;
     skillSetItem = props.skillSetItem.map((data, index) => <Grid item key={index.toString()}><SkillItem skill={data} subskill={props.subskill} /></Grid>)
     return (
-        <Paper className={`skill-box ${cardStyles.techPaper}`} elevation={3}>
+        <Paper className={`skill-box ${cardStyles.techBox}`} elevation={3}>
             <Grid container direction="row" justify="center" alignItems="center" spacing={3}>
                 <Grid item><Container className={`h2 ${cardStyles.typography}`} >{skillSetName}</Container></Grid>
                 <Grid item>
@@ -121,13 +119,16 @@ const SkillsAndTech = props => {
     return (
         <Container id='SkillsAndTech' className={`about ${sharedStyles.sectionBase}`}>
             {Header("Skills and Tech")}
-            <Box pt={7}></Box>
-            <Container style={elevate}>
+            <Box pt={2}/>
+            <Paper elevation={5}>
+            {GapMaker(3)}
                 <Grid container direction="row" alignItems="center" justify="center" spacing={7}>
-                    <Grid item className='KeyPoints'><KeyPoints /></Grid>
+                    <Grid item className='KeyPoints'><KeyPoints/></Grid>
+  
                     <Grid item className='SkillBoxSection'><SkillBoxSection /></Grid>
                 </Grid>
-            </Container>
+            {GapMaker(3)}
+            </Paper>
         </Container>
 
     )

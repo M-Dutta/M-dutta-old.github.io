@@ -1,25 +1,31 @@
 import React from 'react'
-import { Container, Grid, Slide, Typography } from '@material-ui/core';
+import { Container, Grid, Slide, Typography, Paper } from '@material-ui/core';
 import './about.css'
-import { Header, elevate, sharedStylesInitializer, GapMaker } from '../common/sharedFunctions'
+import { Header, sharedStylesInitializer, GapMaker } from '../common/sharedFunctions'
 
 const myPic = require('../../static/me.jpg')
 
 /* Intoductory Components */
-const Picture = props => { return (<Slide in={true} direction='down' timeout={1000}><img className='picture' src={myPic} alt='me'></img></Slide>) }
+const Picture = props => { 
+    return (
+    <Slide in={true} direction='down' timeout={props.timeout? props.timeout:1000}>
+        <Paper elevation={18} style={{borderRadius: '10em'}}>
+            <img className='picture' src={myPic} alt='me'></img>
+        </Paper>
+    </Slide>) }
 
 const Name = props => {
     return (
         <Grid container direction="column" alignItems="flex-start" justify="center" className='name' style={{ objectFit: 'scale-down' }}>
-            <Grid item><Slide in={true} direction='left' timeout={1000}><Container className='resizeable-text'>Hi, I'm Mishuk!</Container></Slide></Grid>
-            <Grid item><Slide in={true} direction='right' timeout={1000}><Container className='resizeable-text'>I'm a full-stack software engineer</Container></Slide></Grid>
+            <Grid item><Slide in={true} direction='left' timeout={props.timeout? props.timeout:1000}><Container className='resizeable-text'>Hi, I'm Mishuk!</Container></Slide></Grid>
+            <Grid item><Slide in={true} direction='right' timeout={props.timeout? props.timeout:1000}><Container className='resizeable-text'>I'm a full-stack software engineer</Container></Slide></Grid>
         </Grid>
     )
 }
 
 
 const IntroParagraph = props => {
-    const style = { aliceblue: { fontFamily: 'Raleway, sans-serif', color: 'aliceblue' } }
+    const style = { textStyle: { fontFamily: 'Raleway, sans-serif', color: '#333333' } }
     const lines = [
         "I am based in Atlanta, GA.",
         "I have a passion for writing services with scalable design/architecture in mind and love putting on multiple hats.",
@@ -28,11 +34,11 @@ const IntroParagraph = props => {
 
     let desc = lines.map((lines, index) =>
         <Grid item key={index.toString()}>
-            <Container><Typography variant="body1" style={style.aliceblue}>{lines}</Typography></Container>
+            <Container><Typography variant="body1" style={style.textStyle}>{lines}</Typography></Container>
         </Grid>
     )
     return (
-        <Slide in={true} direction='up' timeout={1000}>
+        <Slide in={true} direction='up' timeout={props.timeout? props.timeout:1000}>
             <Grid container direction="column" alignItems="flex-start" justify="center" className='name'>
                 {desc}
             </Grid>
@@ -45,7 +51,7 @@ const About = props => {
     return (
         <Container id='About' className={`about ${sharedStyles.sectionBase}`}>
             {Header("About")}
-            <Container style={elevate}>
+            <Paper elevation={5}>
                 <Grid container direction="column" alignItems="center" justify="center" >
                     {GapMaker(2)}
                     <Grid item><Container><Picture /></Container></Grid>
@@ -55,7 +61,7 @@ const About = props => {
                     <Grid item><Container><IntroParagraph /></Container></Grid>
                     {GapMaker(2)}
                 </Grid>
-            </Container>
+            </Paper>
         </Container>
     )
 }

@@ -1,15 +1,29 @@
 .external-urls {
     position: fixed;
-    background-color: rgba(15, 14, 14, 0.26);
-    top: calc(50% - 20px);
-    right: 0%;
+ 
+    top: calc(50% - 59px);
+    right: 1%;
     width: fit-content!important;
     border-radius: 1em;
+
 }
 
 .external-url-icons{
-transition: transform 1s;
+    width: 1.5em!important;
+    height: 1.5em!important;
+    transition: transform 1s;
 }
+
 .external-url-icons:hover { 
     transform: scale(1.5); 
 }
+
+@media all and (max-width: 1280px) {
+    .external-urls {
+        right: 2%;
+    }
+    .external-url-icons{
+        width: 1em!important;
+        height: 1em!important;
+    }
+  }
