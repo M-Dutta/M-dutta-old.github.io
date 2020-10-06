@@ -55,3 +55,17 @@
         height: 16rem; 
     }
 }
+
+@media all and (max-width: 280px) {
+    .resizeable-text {
+        font-size: 1.2em;
+    }
+    .circle {
+        width: 12em;
+        height: 12em;   
+    }
+    .picture {
+        width: 13rem; 
+        height: 13rem; 
+    }
+}

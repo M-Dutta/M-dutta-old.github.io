@@ -1,5 +1,5 @@
 import React from 'react'
-import { Grid,IconButton, Slide } from '@material-ui/core';
+import { Grid, IconButton, Slide } from '@material-ui/core';
 import LinkedInIcon from '@material-ui/icons/LinkedIn';
 import GitHubIcon from '@material-ui/icons/GitHub';
 import './sideNav.css'
@@ -7,6 +7,8 @@ import './sideNav.css'
 const linkedInLink = 'https://www.linkedin.com/in/mishukdutta/'
 const gitHubLink = 'https://github.com/M-Dutta/'
 
+const resumeIconImg = require('../../static/resume.png')
+const resumeLink = require('../../documents/Mishuk-resume.pdf')
 const ExternalUrls = props => {
 
     return (
@@ -20,6 +22,11 @@ const ExternalUrls = props => {
             <Grid item>
                 <IconButton style={{color:'#24292e'}} onClick={() => window.open(gitHubLink)}>
                     <GitHubIcon className='external-url-icons'/>
+                </IconButton>
+            </Grid>
+            <Grid item>
+                <IconButton style={{color:'#24292e'}} onClick={() => window.open(resumeLink, 'titlebar=Mishuk-resume')}>
+                <img src={resumeIconImg} className='external-url-icons'/>
                 </IconButton>
             </Grid>
         </Grid>

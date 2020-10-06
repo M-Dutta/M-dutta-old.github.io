@@ -11,7 +11,7 @@
 .external-url-icons{
     width: 1.5em!important;
     height: 1.5em!important;
-    transition: transform 1s;
+    transition: transform 1s!important;
 }
 
 .external-url-icons:hover { 

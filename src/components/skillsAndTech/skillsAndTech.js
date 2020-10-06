@@ -11,13 +11,13 @@ const styles = makeStyles({
     sectionBase: { minHeight: '100vh' },
     highlightsBox: {
         width: 250, height: 230, backgroundColor:'#fafafa',
-        transition: 'transform 2s, box-shadow 1s',
-        "&:hover": { transform: 'translate(-2px, -2px)', boxShadow: '8px 10px 3px -2px rgba(0,0,0,0.2)' }
+        transition: 'transform 1s, box-shadow 1s',
+        "&:hover": { transform: 'translate(-5px, -5px)', boxShadow: '8px 10px 3px -2px rgba(0,0,0,0.2)' }
     },
     techBox: {
         maxWidth: 250, height: 280,  backgroundColor:'#fafafa',
         transition: 'transform 2s, box-shadow 1s',
-        "&:hover": { transform: 'translate(-2px, -2px)', boxShadow: '8px 10px 3px -2px rgba(0,0,0,0.2)' }
+        "&:hover": { transform: 'translate(-5px, -5px)', boxShadow: '8px 10px 3px -2px rgba(0,0,0,0.2)' }
     },
     media: { maxWidth: 100, height: 100, objectFit: 'contain' },
     typography: { fontFamily: 'Raleway, sans-serif', color: '#3333333'}
