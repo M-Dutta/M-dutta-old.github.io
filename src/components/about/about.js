@@ -50,7 +50,6 @@ const About = props => {
     const sharedStyles = sharedStylesInitializer()
     return (
         <Container id='About' className={`about ${sharedStyles.sectionBase}`}>
-            {Header("About")}
             <Paper elevation={5}>
                 <Grid container direction="column" alignItems="center" justify="center" >
                     {GapMaker(2)}

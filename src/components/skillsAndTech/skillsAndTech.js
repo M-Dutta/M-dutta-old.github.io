@@ -1,26 +1,29 @@
 import React from 'react'
-import { Container, Card, Grid, Box, Paper, CardMedia, CardContent, Typography, Slide, makeStyles } from '@material-ui/core';
+import { Container, Grid, Box, Paper, Slide, makeStyles } from '@material-ui/core';
 import { Header, GapMaker, sharedStylesInitializer } from '../common/sharedFunctions'
 
-const pythonLogo = require('../../static/python-logo.png')
+const pythonDjangoLogo = require('../../static/python-django-logo.png')
+const reactLogo = require('../../static/react-logo.png')
 const awsLogo = require('../../static/aws.png')
 const database = require('../../static/dynamo.png')
-const docker = require('../../static/docker.png')
+const dockerLogo = require('../../static/docker.png')
+const terraformLogo = require('../../static/terraform-logo.png')
+
 
 const styles = makeStyles({
     sectionBase: { minHeight: '100vh' },
     highlightsBox: {
-        width: 250, height: 230, backgroundColor:'#fafafa',
+        width: 250, height: 230, backgroundColor: '#fafafa',
         transition: 'transform 1s, box-shadow 1s',
         "&:hover": { transform: 'translate(-5px, -5px)', boxShadow: '8px 10px 3px -2px rgba(0,0,0,0.2)' }
     },
     techBox: {
-        maxWidth: 250, height: 280,  backgroundColor:'#fafafa',
+        maxWidth: 250, height: 280, backgroundColor: '#fafafa',
         transition: 'transform 2s, box-shadow 1s',
         "&:hover": { transform: 'translate(-5px, -5px)', boxShadow: '8px 10px 3px -2px rgba(0,0,0,0.2)' }
     },
     media: { maxWidth: 100, height: 100, objectFit: 'contain' },
-    typography: { fontFamily: 'Raleway, sans-serif', color: '#3333333'}
+    typography: { fontFamily: 'Raleway, sans-serif', color: '#3333333' }
 })
 
 
@@ -38,10 +41,12 @@ const KeyPoints = props => {
 
     const Point = props => {
         const boxStyles = styles();
+        let images = props.image.map((data, index) => <Grid item><Container component="img" className={boxStyles.media} src={data} /></Grid>)
+        images = <Grid container direction="row" justify="center" alignItems="center">{images}</Grid>
         return (
             <Paper elevation={3} className={boxStyles.highlightsBox}>
                 <Grid container direction="column" justify="center" alignItems="center">
-                    <Grid item><Container component="img" className={boxStyles.media} src={props.image} /></Grid>
+                    <Grid item>{images}</Grid>
                     <Grid item><Container component='Typography' variant="subtitle1" className={boxStyles.typography}>{props.desc}</Container></Grid>
                 </Grid>
             </Paper>
@@ -50,10 +55,18 @@ const KeyPoints = props => {
 
     return (
         <Grid container direction="row" justify="center" alignItems="center" spacing={7} >
-            <Grid item><Point image={pythonLogo} desc='Highly Proficient in Python and Django' /></Grid>
-            <Grid item><Point image={awsLogo} desc='Hands on experience with AWS' /></Grid>
-            <Grid item><Point image={database} desc='I work with both, SQL and NoSQL databases' /></Grid>
-            <Grid item><Point image={docker} desc='I like wearing multiple hats. I can switch between dev and ops role when necessary ' /></Grid>
+            <Slide in={true} direction='left' timeout={1000}>
+                <Grid item><Point image={[pythonDjangoLogo, reactLogo]} desc='Highly Proficient in builing applications with Python, using React and Django frameworks' /></Grid>
+            </Slide>
+            <Slide in={true} direction='left' timeout={1000}>
+                <Grid item><Point image={[awsLogo]} desc='Hands on experience with AWS including building microservices in serverless architechture' /></Grid>
+            </Slide>
+            <Slide in={true} direction='left' timeout={1000}>
+                <Grid item><Point image={[database]} desc='I work with both, SQL and NoSQL databases' /></Grid>
+            </Slide>
+            <Slide in={true} direction='left' timeout={1000}>
+                <Grid item><Point image={[dockerLogo, terraformLogo]} desc='I like wearing multiple hats. I can switch between dev and ops role when necessary ' /></Grid>
+            </Slide>
         </Grid>
     )
 }
@@ -117,17 +130,14 @@ const SkillBoxSection = props => {
 const SkillsAndTech = props => {
     const sharedStyles = sharedStylesInitializer()
     return (
-        <Container id='SkillsAndTech' className={`about ${sharedStyles.sectionBase}`}>
-            {Header("Skills and Tech")}
-            <Box pt={2}/>
+        <Container id='SkillsAndTech' className={`about ${sharedStyles.sectionBase}`}>   
             <Paper elevation={5}>
-            {GapMaker(3)}
+                {GapMaker(3)}
                 <Grid container direction="row" alignItems="center" justify="center" spacing={7}>
-                    <Grid item className='KeyPoints'><KeyPoints/></Grid>
-  
+                    <Grid item className='KeyPoints'><KeyPoints /></Grid>
                     <Grid item className='SkillBoxSection'><SkillBoxSection /></Grid>
                 </Grid>
-            {GapMaker(3)}
+                {GapMaker(3)}
             </Paper>
         </Container>
 
