@@ -1,5 +1,5 @@
 import React from 'react'
-import { Grid, Box, Fade, makeStyles } from '@material-ui/core';
+import { Grid, Box, Fade, makeStyles, Slide } from '@material-ui/core';
 
 const Header = (headerName, paddingTop = 0, paddingBottom = 5) => {
     return (
@@ -10,6 +10,15 @@ const Header = (headerName, paddingTop = 0, paddingBottom = 5) => {
                 </Grid>
             </Box>
         </Fade>
+    )
+}
+
+const CustomSlide = (direction, timeout, delay, component) => {
+    return (
+    <Slide in={true} direction={direction ? direction : 'right'} timeout={timeout ? timeout : 1000} style={{ transitionDelay: delay ? delay : '0ms' }}
+    mountOnEnter unmountOnExit>
+        {component}
+    </Slide>
     )
 }
 
@@ -28,7 +37,8 @@ const GapMaker = (gaps = 1) => {
 
 
 const sharedStylesInitializer = makeStyles({
-    sectionBase: { minHeight: '93vh', paddingTop: '10vh' }
+    sectionBase: { paddingTop: '7rem', paddingBottom: '2.5rem'},
+    innerBase: {borderRadius: '10px'}
 })
 
-export { Header, elevate, sharedStylesInitializer, GapMaker }
+export { Header, elevate, sharedStylesInitializer, GapMaker, CustomSlide }

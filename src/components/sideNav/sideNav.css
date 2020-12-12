@@ -1,29 +1,28 @@
 .external-urls {
     position: fixed;
- 
     top: calc(50% - 59px);
     right: 1%;
     width: fit-content!important;
     border-radius: 1em;
-
+    z-index: 1;
 }
 
-.external-url-icons{
+.external-url-icons {
     width: 1.5em!important;
     height: 1.5em!important;
     transition: transform 1s!important;
 }
 
-.external-url-icons:hover { 
-    transform: scale(1.5); 
+.external-url-icons:hover {
+    transform: scale(1.5);
 }
 
 @media all and (max-width: 1280px) {
     .external-urls {
         right: 2%;
     }
-    .external-url-icons{
+    .external-url-icons {
         width: 1em!important;
         height: 1em!important;
     }
-  }
+}

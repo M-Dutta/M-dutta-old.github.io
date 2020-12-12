@@ -1,39 +1,28 @@
 import React from 'react'
-import { Container, Grid, Box, makeStyles, IconButton, Slide } from '@material-ui/core';
+import { Container, makeStyles, Fade } from '@material-ui/core';
 import './footer.css'
-import LinkedInIcon from '@material-ui/icons/LinkedIn';
-import GitHubIcon from '@material-ui/icons/GitHub';
-
 
 
 const styles = makeStyles({
-    footerStyle: {backgroundColor:'rgb(19 17 17 / 95%)'},
-    typography: { fontFamily: 'Raleway, sans-serif', fontWeight: 'bold', color: 'white', marginBottom: '0' }
+    footerStyle: {
+        textAlign: 'center',
+        backgroundColor: '#f5f5f514',
+        marginTop: 'calc(5% +30px)',
+    }
 })
 
-const linkedInLink = 'https://www.linkedin.com/in/mishukdutta/'
-const gitHubLink = 'https://github.com/M-Dutta/'
 
 const Footer = props => {
-
     const style = styles()
     return (
-        <Box  className={style.footerStyle} mt={10}>
-            <Grid container direction="row" alignItems="center" justify="space-evenly">
-                <Grid item>
-                    <IconButton className='Linked-link' onClick={() => window.open(linkedInLink)}>
-                        <LinkedInIcon fontSize='small'/>
-                    </IconButton>
-                </Grid>
-                <Grid item>
-                    <IconButton className='github-link' onClick={() => window.open(gitHubLink)}>
-                        <GitHubIcon fontSize='small'/>
-                    </IconButton>
-                </Grid>
-            </Grid>
-        </Box>
+        <Fade in={true} timeout={props.timeout ? props.timeout : 1800}>
+            <Container className={`${style.footerStyle}`}>
+                Copyright 2020, Mishuk Dutta, MIT license
+                </Container>
+        </Fade>
     )
 }
+
 
 
 export { Footer }

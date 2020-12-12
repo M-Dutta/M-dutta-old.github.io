@@ -1,11 +1,12 @@
 import React from 'react'
 import { Container, Grid, Box, Paper, Slide, makeStyles } from '@material-ui/core';
-import { Header, GapMaker, sharedStylesInitializer } from '../common/sharedFunctions'
+import { GapMaker, sharedStylesInitializer, CustomSlide } from '../common/sharedFunctions'
 
 const pythonDjangoLogo = require('../../static/python-django-logo.png')
 const reactLogo = require('../../static/react-logo.png')
 const awsLogo = require('../../static/aws.png')
-const database = require('../../static/dynamo.png')
+const noSqlDatabase = require('../../static/dynamo.png')
+const sqlDatabase = require('../../static/sql.png')
 const dockerLogo = require('../../static/docker.png')
 const terraformLogo = require('../../static/terraform-logo.png')
 
@@ -52,21 +53,26 @@ const KeyPoints = props => {
             </Paper>
         )
     }
-
+    let timeout = props.timeout? props.timeout : 1000
+    
     return (
         <Grid container direction="row" justify="center" alignItems="center" spacing={7} >
-            <Slide in={true} direction='left' timeout={1000}>
+            {CustomSlide(
+                props.direction, timeout+150, props.delay,
                 <Grid item><Point image={[pythonDjangoLogo, reactLogo]} desc='Highly Proficient in builing applications with Python, using React and Django frameworks' /></Grid>
-            </Slide>
-            <Slide in={true} direction='left' timeout={1000}>
+            )}
+            {CustomSlide(
+                props.direction, timeout+300, props.delay,
                 <Grid item><Point image={[awsLogo]} desc='Hands on experience with AWS including building microservices in serverless architechture' /></Grid>
-            </Slide>
-            <Slide in={true} direction='left' timeout={1000}>
-                <Grid item><Point image={[database]} desc='I work with both, SQL and NoSQL databases' /></Grid>
-            </Slide>
-            <Slide in={true} direction='left' timeout={1000}>
+            )}
+            {CustomSlide(
+                props.direction, timeout+450, props.delay,
+                <Grid item><Point image={[noSqlDatabase, sqlDatabase]} desc='I work with both, SQL and NoSQL databases' /></Grid>
+            )}
+            {CustomSlide(
+                props.direction, timeout+600, props.delay,
                 <Grid item><Point image={[dockerLogo, terraformLogo]} desc='I like wearing multiple hats. I can switch between dev and ops role when necessary ' /></Grid>
-            </Slide>
+            )}
         </Grid>
     )
 }
@@ -106,23 +112,27 @@ const SkillBox = props => {
 }
 
 const SkillBoxSection = props => {
+    let timeout = props.timeout? props.timeout : 1000
     return (
         <Grid container direction="row" justify="center" alignItems="center" spacing={7}>
-            <Slide in={true} direction='right' timeout={1000}>
+            {CustomSlide(
+                props.direction, timeout+150, props.delay,
                 <Grid item><SkillBox skillSetName='Languages' skillSetItem={language_list} subskill={true} /></Grid>
-            </Slide>
+            )}
 
-            <Slide in={true} direction='right' timeout={1100}>
+            {CustomSlide(
+                props.direction, timeout+300, props.delay,
                 <Grid item><SkillBox skillSetName='Databases' skillSetItem={database_list} subskill={true} /></Grid>
-            </Slide>
+            )}
 
-            <Slide in={true} direction='right' timeout={1200}>
+            {CustomSlide(
+                props.direction, timeout+450, props.delay,
                 <Grid item><SkillBox skillSetName='Cloud/Ops' skillSetItem={ops_and_cloud_list} subskill={false} /></Grid>
-            </Slide>
-
-            <Slide in={true} direction='right' timeout={1300}>
+            )}
+            {CustomSlide(
+                props.direction, timeout+600, props.delay,
                 <Grid item><SkillBox skillSetName='Other Skills' skillSetItem={others_list} subskill={false} /></Grid>
-            </Slide>
+            )}
         </Grid>
     )
 }
@@ -130,15 +140,19 @@ const SkillBoxSection = props => {
 const SkillsAndTech = props => {
     const sharedStyles = sharedStylesInitializer()
     return (
-        <Container id='SkillsAndTech' className={`about ${sharedStyles.sectionBase}`}>   
-            <Paper elevation={5}>
-                {GapMaker(3)}
-                <Grid container direction="row" alignItems="center" justify="center" spacing={7}>
-                    <Grid item className='KeyPoints'><KeyPoints /></Grid>
-                    <Grid item className='SkillBoxSection'><SkillBoxSection /></Grid>
-                </Grid>
-                {GapMaker(3)}
-            </Paper>
+        <Container id='SkillsAndTech' className={`about ${sharedStyles.sectionBase}`}>
+            <Grid container justify='center' alignContent='center'>
+                <Slide in={true} direction='right' timeout={1000}>
+                    <Paper elevation={5} className={`${sharedStyles.innerBase}`}>
+                        {GapMaker(3)}
+                        <Grid container direction="row" alignItems="center" justify="center" spacing={10}>
+                            <Grid item className='KeyPoints'><KeyPoints delay={600} /></Grid>
+                            <Grid item className='SkillBoxSection'><SkillBoxSection delay={600} /></Grid>
+                        </Grid>
+                        {GapMaker(3)}
+                    </Paper>
+                </Slide>
+            </Grid>
         </Container>
 
     )
