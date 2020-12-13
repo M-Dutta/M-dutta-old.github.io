@@ -17,7 +17,7 @@ const Footer = props => {
     return (
         <Fade in={true} timeout={props.timeout ? props.timeout : 1800}>
             <Container className={`${style.footerStyle}`}>
-                Copyright 2020, Mishuk Dutta, MIT license
+                <b>Copyright 2020, Mishuk Dutta, MIT license</b>
                 </Container>
         </Fade>
     )

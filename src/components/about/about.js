@@ -67,20 +67,22 @@ const IntroParagraph = props => {
     )
 }
 
+
 const About = props => {
     const sharedStyles = sharedStylesInitializer()
+    let direction = props.direction? props.direction: 'left'
     return (
 
         <Container id='About' className={`about ${sharedStyles.sectionBase}`}>
-            <Slide in={true} direction='right' timeout={1000}>
+            <Slide in={true} direction={direction} timeout={1000} mountOnEnter unmountOnExit>
                 <Paper elevation={5} className={`${sharedStyles.innerBase}`}>
                     <Grid container direction="column" alignItems="center" justify="center" >
                         {GapMaker(2)}
-                        <Grid item><Container><Picture delay={600} /></Container></Grid>
+                        <Grid item><Container><Picture delay={600} direction={direction} /></Container></Grid>
                         {GapMaker(1)}
-                        <Grid item><Container><Name delay={900} /></Container></Grid>
+                        <Grid item><Container><Name delay={900} direction={direction} /></Container></Grid>
                         {GapMaker(1)}
-                        <Grid item><Container><IntroParagraph delay={1200} /></Container></Grid>
+                        <Grid item><Container><IntroParagraph delay={1200} direction={direction} /></Container></Grid>
                         {GapMaker(2)}
                     </Grid>
                 </Paper>

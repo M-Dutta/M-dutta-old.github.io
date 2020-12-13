@@ -9,7 +9,7 @@ const resumeLink = require('../../documents/Mishuk-resume.pdf')
 const ExternalUrls = props => {
 
     return (
-        <Slide in={true} direction='left' timeout={1500}>
+        <Slide in={true} direction='left' timeout={2000}>
             <Grid className='external-urls' container direction='column' alignContent='baseline' justify='center'>
                 <Grid item>
                     <IconButton style={{ color: '#0b73b1' }} onClick={() => window.open(linkedInLink)}>

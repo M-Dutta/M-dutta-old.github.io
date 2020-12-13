@@ -31,7 +31,6 @@ const elevate = {
 const GapMaker = (gaps = 1) => {
     const temp = new Array(gaps, '_')
     let brs = temp.map((temp, index) => <br />)
-    console.log(brs)
     return brs
 }
 

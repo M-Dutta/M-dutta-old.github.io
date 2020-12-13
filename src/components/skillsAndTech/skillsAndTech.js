@@ -139,15 +139,16 @@ const SkillBoxSection = props => {
 
 const SkillsAndTech = props => {
     const sharedStyles = sharedStylesInitializer()
+    let direction = props.direction?props.direction: 'right'
     return (
         <Container id='SkillsAndTech' className={`about ${sharedStyles.sectionBase}`}>
             <Grid container justify='center' alignContent='center'>
-                <Slide in={true} direction='right' timeout={1000}>
+                <Slide in={true} direction={direction} timeout={1000}>
                     <Paper elevation={5} className={`${sharedStyles.innerBase}`}>
                         {GapMaker(3)}
                         <Grid container direction="row" alignItems="center" justify="center" spacing={10}>
-                            <Grid item className='KeyPoints'><KeyPoints delay={600} /></Grid>
-                            <Grid item className='SkillBoxSection'><SkillBoxSection delay={600} /></Grid>
+                            <Grid item className='KeyPoints'><KeyPoints direction={direction} delay={600}/></Grid>
+                            <Grid item className='SkillBoxSection'><SkillBoxSection direction={direction} delay={600} /></Grid>
                         </Grid>
                         {GapMaker(3)}
                     </Paper>
