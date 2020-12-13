@@ -48,7 +48,7 @@ const KeyPoints = props => {
             <Paper elevation={3} className={boxStyles.highlightsBox}>
                 <Grid container direction="column" justify="center" alignItems="center">
                     <Grid item>{images}</Grid>
-                    <Grid item><Container component='Typography' variant="subtitle1" className={boxStyles.typography}>{props.desc}</Container></Grid>
+                    <Grid item><Container className={boxStyles.typography}>{props.desc}</Container></Grid>
                 </Grid>
             </Paper>
         )

@@ -67,7 +67,6 @@ const IntroParagraph = props => {
     )
 }
 
-
 const About = props => {
     const sharedStyles = sharedStylesInitializer()
     let direction = props.direction? props.direction: 'left'

@@ -30,7 +30,7 @@ const useStyles = makeStyles({
 
 const NavBar = props => {
 	const navBarStyle = useStyles()
-	const [section, setSection] = useState(<About/>);
+	const [section, setSection] = useState(<About />);
 	const [sectionNum, setSectionNum] = useState(1);
 
 	const computeDirection = (sectionNumber) => {
@@ -38,15 +38,17 @@ const NavBar = props => {
 			return 'right'
 		return 'left'
 	}
-	
+
 	const renderSection = (sectionNumber) => {
 		switch (sectionNumber) {
 			case 1:
 				setSection(<About direction={computeDirection(sectionNumber)} />)
 				break;
 			case 2:
-				console.log('hitting case 2')
 				setSection(<SkillsAndTech direction={computeDirection(sectionNumber)} />)
+				break;
+			case 3:
+				setSection(null)
 				break;
 			default:
 				setSection(<About />)
@@ -59,14 +61,15 @@ const NavBar = props => {
 		<React.Fragment>
 			<Fade in={true} timeout={3000}>
 				<AppBar className={navBarStyle.navBar} position='fixed'>
-					<Tabs centered={true}>
-						<Router>
-							<Tab className={navBarStyle.fontStyle} label='About' onClick={() => renderSection(1)} value={1}/>
-							<Tab className={navBarStyle.fontStyle} label='Skills & Tech' onClick={() => renderSection(2)} value={2} />
-							<Tab className={navBarStyle.fontStyle} label='site-info' onClick={() => renderSection(3)} value={3} />
+					<Router>
+						<Tabs centered={true} value={sectionNum} position='fixed' indicatorColor='primary'>
+							<Tab value={1} className={navBarStyle.fontStyle} label='About' onClick={() => renderSection(1)} />
+							<Tab value={2} className={navBarStyle.fontStyle} label='Skills & Tech' onClick={() => renderSection(2)} />
+							<Tab value={3} className={navBarStyle.fontStyle} label='site-info' onClick={() => renderSection(3)} />
 							<Switch></Switch>
-						</Router>
-					</Tabs>
+
+						</Tabs>
+					</Router>
 				</AppBar>
 			</Fade>
 			{section}
