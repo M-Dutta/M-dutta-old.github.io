@@ -2,83 +2,18 @@
   --transition_time: 0.3s;
   --trainsition_type: linear;
 }
-
-.container-fluid {
-  -webkit-transition: all var(--transition_time) var(--trainsition_type) 0s;
-  transition: all var(--transition_time) var(--trainsition_type) 0s;
-  /*transition: all var(--transition_time) var(--trainsition_type) 0s;*/
-}
-
-.container {
-  -webkit-transition: all var(--transition_time) var(--trainsition_type) 0s;
-  transition: all var(--transition_time) var(--trainsition_type) 0s;
-  /*transition: all var(--transition_time) var(--trainsition_type) 0s;*/
-}
-
-.row [class*='col-'] {
-  transition: all var(--transition_time) var(--trainsition_type) 0s !important;
-}
-
-.pt-6 {
-  padding-top: 5rem!important;
-}
-
-.w-70 {
-  max-width: 70%!important;
-}
-
-.rounded-bottom-1 {
-  border-bottom-right-radius: 1.25rem!important;
-  border-bottom-left-radius: 1.25rem!important;
-}
-
-h1 {
-  font-family: MuseoModerno;
-  color: #7f8c8d;
-
-  border-width: 5px 0px 5px 0px;
-}
-
-h2 {
-  font-family: MuseoModerno;
-  color: #7f8c8d;
-}
-
-:focus {
-  outline: 0px !important;
-}
-
-
-@media all and (max-width: 1000px) {
-  /* screen size until 1000px */
-  .w-75 {
-    width: 100%!important;
-  }
-  .w-70 {
-    max-width: 100%!important;
-  }
-}
-
-@media all and (max-width: 500px) {}
-
 /*fonts*/
 
 @import url(https://fonts.googleapis.com/css2?family=Monoton);
 /*Used for Headers*/
 @import url(https://fonts.googleapis.com/css2?family=Dancing+Script:wght@700&family=Great+Vibes);
 /*header and intro*/
-
-@import url(https://fonts.googleapis.com/css2?family=Comfortaa); /*comforta */
+@import url('https://fonts.googleapis.com/css2?family=Zen+Dots&display=swap'); /*Zen Dots*/
+@import url('https://fonts.googleapis.com/css2?family=Comfortaa:wght@300;400;500;600;700&display=swap'); /*Comfortaa*/
 @import url(https://fonts.googleapis.com/css2?family=Cabin+Sketch:wght@700); /*Cabin Sketch */
 @import url(https://fonts.googleapis.com/css2?family=MuseoModerno:wght@300;400;500); /*'MuseoModerno', cursive; */
 @import url(https://fonts.googleapis.com/css2?family=Sriracha); /*'Sriracha', cursive; */
-
 @import url(https://fonts.googleapis.com/css2?family=Raleway:ital,wght@0,300;0,400;0,500;0,600;1,300;1,400;1,500;1,600); /*Roboto*/
-
-body {
-  background-color: #fafafa;
-  /* background-image: url("../src/static/charcoal.jpg") */
-}
 
 .App {
   min-height: 95vh;

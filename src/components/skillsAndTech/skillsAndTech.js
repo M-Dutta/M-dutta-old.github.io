@@ -115,24 +115,12 @@ const SkillBoxSection = props => {
     let timeout = props.timeout? props.timeout : 1000
     return (
         <Grid container direction="row" justify="center" alignItems="center" spacing={7}>
-            {CustomSlide(
-                props.direction, timeout+150, props.delay,
+
                 <Grid item><SkillBox skillSetName='Languages' skillSetItem={language_list} subskill={true} /></Grid>
-            )}
-
-            {CustomSlide(
-                props.direction, timeout+300, props.delay,
                 <Grid item><SkillBox skillSetName='Databases' skillSetItem={database_list} subskill={true} /></Grid>
-            )}
-
-            {CustomSlide(
-                props.direction, timeout+450, props.delay,
                 <Grid item><SkillBox skillSetName='Cloud/Ops' skillSetItem={ops_and_cloud_list} subskill={false} /></Grid>
-            )}
-            {CustomSlide(
-                props.direction, timeout+600, props.delay,
                 <Grid item><SkillBox skillSetName='Other Skills' skillSetItem={others_list} subskill={false} /></Grid>
-            )}
+      
         </Grid>
     )
 }
@@ -141,23 +129,16 @@ const SkillsAndTech = props => {
     const sharedStyles = sharedStylesInitializer()
     let direction = props.direction?props.direction: 'right'
     return (
-        <Container id='SkillsAndTech' className={`about ${sharedStyles.sectionBase}`}>
-            <Grid container justify='center' alignContent='center'>
-                <Slide in={true} direction={direction} timeout={1000}>
-                    <Paper elevation={5} className={`${sharedStyles.innerBase}`}>
+        <Container id='SkillsAndTech'>
                         {GapMaker(3)}
                         <Grid container direction="row" alignItems="center" justify="center" spacing={10}>
-                            <Grid item className='KeyPoints'><KeyPoints direction={direction} delay={600}/></Grid>
-                            <Grid item className='SkillBoxSection'><SkillBoxSection direction={direction} delay={600} /></Grid>
+                                <Grid item className='SkillBoxSection'><SkillBoxSection direction={direction} delay={600} /></Grid>
                         </Grid>
                         {GapMaker(3)}
-                    </Paper>
-                </Slide>
-            </Grid>
+
         </Container>
 
     )
 }
 
 export { SkillsAndTech }
-//            {/* </Box><Slide in={true} direction='left' timeout={1000}> */}
