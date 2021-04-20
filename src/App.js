@@ -1,8 +1,7 @@
 import React from 'react';
 import { About } from './components/about/About'
 import { Experience } from './components/work/Experience'
-import { Footer } from './components/footer/footer'
-import { Container, Grid, Box } from '@material-ui/core';
+import { Box } from '@material-ui/core';
 import 'bootstrap/dist/css/bootstrap.min.css';
 import './App.css';
 
@@ -20,6 +19,3 @@ function App() {
 }
 
 export default App;
-
-{/* <ExternalUrls/>
-<NavBar /> */}

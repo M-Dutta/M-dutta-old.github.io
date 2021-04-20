@@ -1,6 +1,6 @@
 
 import React from 'react'
-import { Grid, IconButton, makeStyles, Slide } from '@material-ui/core';
+import { IconButton, makeStyles } from '@material-ui/core';
 
 const linkedInLink = 'https://www.linkedin.com/in/mishukdutta/'
 const gitHubLink = 'https://github.com/M-Dutta/'
@@ -8,6 +8,7 @@ const resumeLink = require('../../documents/Mishuk-resume.pdf')
 
 const iconStyle = makeStyles({
     resize: {
+        // eslint-disable-next-line
         ['@media (max-width:360px)']: {
             width: '2.7rem'
         },

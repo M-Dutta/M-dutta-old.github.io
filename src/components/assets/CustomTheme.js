@@ -1,5 +1,4 @@
 import { createMuiTheme } from '@material-ui/core';
-import { Opacity } from '@material-ui/icons';
 const theme = createMuiTheme();
 
 theme.typography.h2 = {

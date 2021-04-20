@@ -2,11 +2,7 @@ import React from 'react'
 import { CenterToPage, ContentPane, CustomSlide } from '../common/sharedFunctions'
 import { MyPicture } from './picture'
 import { IntroName, IntroParagraph } from './IntroSection.js';
-import { Container, Grid, makeStyles, Fade } from '@material-ui/core';
-
-import { Parallax, Background } from 'react-parallax';
-
-//const background = require('../../static/white-background.png')
+import { Container, Grid, makeStyles } from '@material-ui/core';
 
 const About = props => {
     const centerToPage = CenterToPage('10vh')
@@ -25,7 +21,6 @@ const About = props => {
                 </CustomSlide>
                 <Grid item>
                     <CustomSlide direction='left' delay={600}>
-
                         <Container maxWidth='sm'>
                             <ContentPane className={classes.introText}>
                                 <Grid container direction="column" justify="center" alignItems="center" spacing={4}>
@@ -34,7 +29,6 @@ const About = props => {
                                 </Grid>
                             </ContentPane>
                         </Container>
-
                     </CustomSlide>
                 </Grid>
 

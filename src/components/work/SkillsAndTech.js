@@ -1,14 +1,12 @@
 import React, { useState } from 'react'
-import { Grid, Typography, makeStyles, Fade } from '@material-ui/core';
+import { Grid, Typography, makeStyles } from '@material-ui/core';
 import { Title, ContentPane, ViewPortVisibility } from '../common/sharedFunctions'
-import ScrollTrigger from 'react-scroll-trigger';
 
 const Languages = ["Python", "JavaScript", "Java", "C++", "Golang"]
 //const Languages = "Python JavaScript Java C++ Golang"
 const Frameworks = ["Django", "SpringBoot", "React", "Node.js", "REST"]
 const Databases = ["PostgreSQL", "MySQL", "DynamoDB", "Cassandra", "MongoDB", "NoSQL"]
 const DevOps = ["AWS", "Docker", "Consul", "Fabio", "Terraform", "Redis", "Datadog"]
-const Processes = ["Swagger", "Agile", "Scrum"]
 
 
 const contentGrid = (dataList) => {

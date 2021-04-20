@@ -1,8 +1,6 @@
 import React from 'react';
 import { Container, Grid } from '@material-ui/core';
 import Typography from '@material-ui/core/Typography';
-import { CustomSlide } from '../common/sharedFunctions';
-
 
 
 export const IntroName = props => {

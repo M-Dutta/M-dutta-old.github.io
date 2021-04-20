@@ -5,18 +5,17 @@ import { BrowserRouter } from 'react-router-dom'
 import { LinkedInIcon, GitHubIcon, ResumeIcon } from '../assets/Icons'
 import { CustomSlide } from '../common/sharedFunctions'
 
-const navLinks = [
-    { title: 'About', path: '#about' },
-    { title: 'Experience', path: '#experience' },
-]
 const navStyle = makeStyles({
     text: {
+        // eslint-disable-next-line
         ['@media (max-width:360px)']: {
             fontSize: '0.7rem'
         },
+        // eslint-disable-next-line
         ['@media (max-width:401px)']: {
             fontSize: '0.9rem'
         },
+        // eslint-disable-next-line
         ['@media (max-width:359px)']: {
             visibility: 'hidden'
         }
@@ -46,11 +45,3 @@ export const Header = () => {
         </CustomSlide>
     )
 }
-
-// {navLinks.map(({ title, path }) => (
-//     <a href={path} key={title}>
-//         <ListItem button>
-//             <ListItemText primary={title} />
-//         </ListItem>
-//     </a>
-// ))}

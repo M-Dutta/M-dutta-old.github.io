@@ -1,7 +1,6 @@
 import React, { useState } from 'react'
-import { Grid, Typography, makeStyles, Fade } from '@material-ui/core';
+import { Grid, Typography, makeStyles } from '@material-ui/core';
 import { Title, ContentPane, ViewPortVisibility } from '../common/sharedFunctions'
-import ScrollTrigger from 'react-scroll-trigger';
 
 
 const HighlistList = [
