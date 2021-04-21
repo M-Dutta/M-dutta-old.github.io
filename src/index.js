@@ -3,6 +3,7 @@ import ReactDOM from 'react-dom';
 import './index.css';
 import App from './App';
 import { Header } from './components/navBar/navBar'
+import { Footer } from './components/footer/Footer'
 import { theme } from './components/assets/CustomTheme'
 import { ThemeProvider } from '@material-ui/core';
 import * as serviceWorker from './serviceWorker';
@@ -13,6 +14,7 @@ ReactDOM.render(
 		<ThemeProvider theme={theme}>
 			<Header />
 			<App />
+			<Footer />
 		</ThemeProvider>
 		<BGParticles />
 	</React.StrictMode>,

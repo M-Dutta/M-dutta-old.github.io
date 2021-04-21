@@ -60,11 +60,9 @@ export const ContentPane = React.forwardRef((props, ref) => {
 
 export const CenterToPage = makeStyles({
     center: {
-        minHeight: 'calc(100vh - 35px)',
+        minHeight: 'calc(100vh - 86px)',
         // eslint-disable-next-line
-        ['@media (max-width:1061px)']: { 
-            minHeight: 'calc(100vh + 35px)',
-        },
+
         // eslint-disable-next-line
         ['@media (max-width:599px)']: { 
             

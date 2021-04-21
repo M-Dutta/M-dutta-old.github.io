@@ -11,8 +11,7 @@ export const Experience = props => {
     const useStyles = makeStyles({
         workSection: {
             // eslint-disable-next-line
-            ['@media (max-width:953px)']: {
-                paddingTop: '10vh',
+            ['@media (max-width:360px)']: {
             },
         }
     })

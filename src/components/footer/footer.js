@@ -1,6 +1,5 @@
 import React from 'react'
 import { Container, makeStyles, Fade } from '@material-ui/core';
-import './footer.css'
 
 
 const styles = makeStyles({
