@@ -1,9 +1,8 @@
-import React, { useState } from 'react'
+import React from 'react'
 import { Grid, Typography, makeStyles } from '@material-ui/core';
-import { Title, ContentPane, ViewPortVisibilitySlide } from '../common/sharedFunctions'
+import { Title, ContentPane } from '../common/sharedFunctions'
 
 const Languages = ["Python", "JavaScript", "Java", "C++", "Golang"]
-//const Languages = "Python JavaScript Java C++ Golang"
 const Frameworks = ["Django", "SpringBoot", "React", "Node.js", "REST"]
 const Databases = ["PostgreSQL", "MySQL", "DynamoDB", "Cassandra", "MongoDB", "NoSQL"]
 const DevOps = ["AWS", "Docker", "Consul", "Fabio", "Terraform", "Redis", "Datadog"]
@@ -52,14 +51,11 @@ export const SkillsAndTech = props => {
             borderRadius: '1em'
         }
     })
-    const [visible, setVisibility] = useState(false);
-    const onEnterViewport = () => { setVisibility(true) }
-    const onExitViewport = () => { setVisibility(false) }
     const classes = useStyles()
-
+    const ref = React.createRef();
     return (
-        <ViewPortVisibilitySlide onEnter={onEnterViewport} onExit={onExitViewport} throttleScroll={0} visible={visible}>
-            <section id='Tech Stack'>
+
+            <section id='Tech Stack' ref={ref}>
                 <Grid container justify='center' alignItems='center'><Title title='Tech Stack' /></Grid>
                 <ContentPane className={classes.content}>
                     <Grid container direction='row' spacing={8} justify='center' alignItems='center'>
@@ -78,6 +74,5 @@ export const SkillsAndTech = props => {
                     </Grid>
                 </ContentPane>
             </section>
-        </ViewPortVisibilitySlide>
     )
 }

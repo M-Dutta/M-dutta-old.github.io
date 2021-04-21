@@ -1,5 +1,5 @@
-import React from 'react'
-import { Grid, Box, Fade, makeStyles, Slide, Typography } from '@material-ui/core';
+import React, {useState} from 'react'
+import { Grid, Box, makeStyles, Slide, Typography } from '@material-ui/core';
 import ScrollTrigger from 'react-scroll-trigger';
 
 export const Title = props => {
@@ -31,9 +31,14 @@ export const CustomSlide = React.forwardRef((props, ref) => {
 
 export const ViewPortVisibilitySlide = React.forwardRef((props, ref) => {
     const children = props.children
+    const [visible, setVisibility] = useState(false);
+    const onEnterViewport = () => { setVisibility(true) }
+    const onExitViewport = () => { setVisibility(false) }
+    const direction = props.direction || 'right'
+    const timeout =props.timeout || 1000
     return (
-        <ScrollTrigger onEnter={props.onEnter} onExit={props.onExit} throttleScroll={props.throttleScroll || 100}>
-            <Slide in={props.visible} direction={props.direction} timeout={600}>
+        <ScrollTrigger onEnter={onEnterViewport} onExit={onExitViewport} throttleScroll={props.throttleScroll || 100}>
+            <Slide in={visible} direction={direction} timeout={timeout}>
                 <Box className={props.className || ''}>
                     {children}
                 </Box>

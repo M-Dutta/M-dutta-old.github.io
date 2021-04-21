@@ -11,6 +11,7 @@ function App() {
 			<Box className='App' style={{ paddingTop: "35px" }}>
 				<section id='about'/>
 				<About />
+				<Box pt={1}/>
 				<section id='experience' style={{scrollMarginTop:"35px"}} />
 				<Experience />
 			</Box>

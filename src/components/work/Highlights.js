@@ -1,6 +1,6 @@
-import React, { useState } from 'react'
+import React from 'react'
 import { Grid, Typography, makeStyles } from '@material-ui/core';
-import { Title, ContentPane, ViewPortVisibilitySlide } from '../common/sharedFunctions'
+import { Title, ContentPane } from '../common/sharedFunctions'
 
 
 const HighlistList = [
@@ -63,19 +63,16 @@ export const Highlights = props => {
         }
     })
 
-    const [visible, setVisibility] = useState(false);
-    const onEnterViewport = () => { setVisibility(true) }
-    const onExitViewport = () => { setVisibility(false) }
     const classes = useStyles()
     return (
-        <ViewPortVisibilitySlide onEnter={onEnterViewport} onExit={onExitViewport} visible={visible}>
+
             <section id="Highlights">
                 <Grid container justify='center' alignItems='center'><Title title='Highlights' /></Grid>
                 <ContentPane className={classes.content}>
                     <HiglightIterator />
                 </ContentPane>
             </section>
-        </ViewPortVisibilitySlide>
+
     )
 
 }

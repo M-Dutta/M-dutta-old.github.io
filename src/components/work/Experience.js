@@ -3,6 +3,7 @@ import { Container, Grid, Box } from '@material-ui/core';
 import { makeStyles } from '@material-ui/core';
 import { SkillsAndTech } from './SkillsAndTech'
 import { Highlights } from './Highlights'
+import { ViewPortVisibilitySlide } from '../common/sharedFunctions';
 
 
 
@@ -20,9 +21,13 @@ export const Experience = props => {
     return (
         <Container maxWidth='md'>
             <Grid container direction="column" alignItems="center" justify="center" className={classes.workSection}>
-                <SkillsAndTech />
+                <ViewPortVisibilitySlide direction='right'>
+                    <SkillsAndTech />
+                </ViewPortVisibilitySlide>
                 <Box pt={8}></Box>
-                <Highlights />
+                <ViewPortVisibilitySlide direction='left'>
+                    <Highlights />
+                </ViewPortVisibilitySlide>
             </Grid>
         </Container>
     )
