@@ -1,22 +1,20 @@
 import React from 'react';
-import { NavBar } from './components/navBar/navBar'
-import { ExternalUrls } from './components/sideNav/sideNav'
-import { Footer } from './components/footer/footer'
-
+import { About } from './components/about/About'
+import { Experience } from './components/work/Experience'
+import { Box } from '@material-ui/core';
 import 'bootstrap/dist/css/bootstrap.min.css';
 import './App.css';
 
-function App() {
-	
 
+function App() {
 	return (
-		<React.Fragment>
-		<div className='App'>
-			<ExternalUrls/>
-			<NavBar />
-		</div>
-		<Footer/>
-		</React.Fragment>
+			<Box className='App' my={5}>
+				<section id='about'/>
+				<About />
+				<Box mt={8}/>
+				<section id='experience' style={{scrollMarginTop:"35px"}} />
+				<Experience />
+			</Box>
 	)
 
 }

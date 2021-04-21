@@ -1,80 +1,51 @@
-import React, { useState } from 'react';
-import { BrowserRouter as Router, Switch } from 'react-router-dom'
-import './navBar.css'
-import 'bootstrap/dist/css/bootstrap.css';
-import { makeStyles } from '@material-ui/core/styles';
-import { AppBar, Tab, Tabs, Fade } from '@material-ui/core';
+import React from 'react'
+import { AppBar, Toolbar, Grid, Typography, makeStyles } from "@material-ui/core"
+import { HashLink } from 'react-router-hash-link';
+import { BrowserRouter } from 'react-router-dom'
+import { LinkedInIcon, GitHubIcon, ResumeIcon } from '../assets/Icons'
+import { CustomSlide } from '../common/sharedFunctions'
 
-import { About } from '../about/about'
-import { SkillsAndTech } from '../skillsAndTech/skillsAndTech'
+const navStyle = makeStyles({
+    text: {
+        // eslint-disable-next-line
+        ['@media (max-width:360px)']: {
+            fontSize: '0.7rem'
+        },
+        // eslint-disable-next-line
+        ['@media (max-width:401px)']: {
+            fontSize: '0.9rem'
+        },
+        // eslint-disable-next-line
+        ['@media (max-width:372px)']: {
+            fontSize: '0.7rem'
+        },
+        // eslint-disable-next-line
+        ['@media (max-width:359px)']: {
+            visibility: 'hidden'
+        }
 
+    }
+})
 
-const useStyles = makeStyles({
-	navBar: { backgroundColor: 'rgb(255 255 255 / 78%)' },
-	fontStyle: {
-		fontFamily: "Cabin Sketch",
-		fontSize: 'larger',
-		color: '#7f8c8d',
-		opacity: 1,
-		"&:hover": {
-			textDecoration: 'underline',
-			// color: '#09C269',
-			color: '#2d8cff'
-		},
-		"&:active": {
-			opacity: 1,
-			color: '#3c5498'
-		}
-	}
-});
-
-const NavBar = props => {
-	const navBarStyle = useStyles()
-	const [section, setSection] = useState(<About />);
-	const [sectionNum, setSectionNum] = useState(1);
-
-	const computeDirection = (sectionNumber) => {
-		if (sectionNumber < sectionNum)
-			return 'right'
-		return 'left'
-	}
-
-	const renderSection = (sectionNumber) => {
-		switch (sectionNumber) {
-			case 1:
-				setSection(<About direction={computeDirection(sectionNumber)} />)
-				break;
-			case 2:
-				setSection(<SkillsAndTech direction={computeDirection(sectionNumber)} />)
-				break;
-			case 3:
-				setSection(null)
-				break;
-			default:
-				setSection(<About />)
-				break;
-		}
-		setSectionNum(sectionNumber)
-	}
-
-	return (
-		<React.Fragment>
-			<Fade in={true} timeout={3000}>
-				<AppBar className={navBarStyle.navBar} position='fixed'>
-					<Router>
-						<Tabs centered={true} value={sectionNum} position='fixed' indicatorColor='primary'>
-							<Tab value={1} className={navBarStyle.fontStyle} label='About' onClick={() => renderSection(1)} />
-							<Tab value={2} className={navBarStyle.fontStyle} label='Skills & Tech' onClick={() => renderSection(2)} />
-							<Tab value={3} className={navBarStyle.fontStyle} label='site-info' onClick={() => renderSection(3)} />
-							<Switch></Switch>
-
-						</Tabs>
-					</Router>
-				</AppBar>
-			</Fade>
-			{section}
-		</React.Fragment>
-	)
+export const Header = () => {
+    const classes = navStyle()
+    return (
+        <CustomSlide direction='top'>
+            <AppBar>
+                <Toolbar>
+                    <Grid container direction='row' justify="flex-start" spacing={4}>
+                        <BrowserRouter>
+                            <Grid item><HashLink to='#about' scroll={(el) => el.scrollIntoView({ behavior: 'smooth', block: 'center' })}><Typography className={classes.text}>About</Typography></HashLink></Grid>
+                            <Grid item><HashLink to='#experience' scroll={(el) => el.scrollIntoView({ behavior: 'smooth', block: 'start' })}><Typography className={classes.text}>Experience</Typography></HashLink></Grid>
+                        </BrowserRouter>
+                    </Grid>
+                    <Grid container direction='row' justify="flex-end" spacing={0}>
+                        <Grid item><LinkedInIcon /></Grid>
+                        <Grid item><GitHubIcon /></Grid>
+                        <Grid item><ResumeIcon /></Grid>
+                    </Grid>
+                </Toolbar>
+            </AppBar>
+        </CustomSlide>
+    )
 }
-
-export { NavBar }

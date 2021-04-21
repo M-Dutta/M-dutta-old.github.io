@@ -1,43 +1,71 @@
-import React from 'react'
-import { Grid, Box, Fade, makeStyles, Slide } from '@material-ui/core';
+import React, {useState} from 'react'
+import { Grid, Box, makeStyles, Slide, Typography } from '@material-ui/core';
+import ScrollTrigger from 'react-scroll-trigger';
 
-const Header = (headerName, paddingTop = 0, paddingBottom = 5) => {
+export const Title = props => {
+    const marginTop = props.marginTop || '0px'
+    const marginBottom = props.marginBottom || '0px'
+    const title = props.title
     return (
-        <Fade in={true} timeout={2000}>
-            <Box pt={paddingTop} pb={paddingBottom}>
-                <Grid container component='h1' alignItems="center" justify="center">
-                    {headerName}
-                </Grid>
-            </Box>
-        </Fade>
+        <Box mt={marginTop} mb={marginBottom}>
+            <Grid container alignItems="center" justify="center">
+                <Typography variant='h4'> {title} </Typography>
+            </Grid>
+        </Box>
     )
 }
 
-const CustomSlide = (direction, timeout, delay, component) => {
+
+export const CustomSlide = React.forwardRef((props, ref) => {
+    const direction = props.direction || 'right'
+    const timeout = props.timeout || 1000
+    const delay = props.delay || '0ms'
+    const children = props.children
     return (
-    <Slide in={true} direction={direction ? direction : 'right'} timeout={timeout ? timeout : 1000} style={{ transitionDelay: delay ? delay : '0ms' }}
-    mountOnEnter unmountOnExit>
-        {component}
-    </Slide>
+        <Slide in={true} direction={direction} timeout={timeout} style={{ transitionDelay: delay }}
+            mountOnEnter unmountOnExit>
+            {children}
+        </Slide>
     )
-}
+});
 
-const elevate = {
-    boxShadow: '12px 16px 20px black',
-    backgroundColor: '#e8e8e8',
-    borderRadius: '1em'
-};
+export const ViewPortVisibilitySlide = React.forwardRef((props, ref) => {
+    const children = props.children
+    const [visible, setVisibility] = useState(false);
+    const onEnterViewport = () => { setVisibility(true) }
+    const onExitViewport = () => { setVisibility(false) }
+    const direction = props.direction || 'right'
+    const timeout =props.timeout || 1000
+    return (
+        <ScrollTrigger onEnter={onEnterViewport} onExit={onExitViewport} throttleScroll={props.throttleScroll || 100}>
+            <Slide in={visible} direction={direction} timeout={timeout}>
+                <Box className={props.className || ''}>
+                    {children}
+                </Box>
+            </Slide>
+        </ScrollTrigger>
+    )
+});
 
-const GapMaker = (gaps = 1) => {
-    const temp = new Array(gaps, '_')
-    let brs = temp.map((temp, index) => <br />)
-    return brs
-}
+
+export const ContentPane = React.forwardRef((props, ref) => {
+    const component = props.children
+    return (
+        <Box p={2} mt={4} className={`content-pane ${props.className || null} `} ref={ref}>
+            {component}
+        </Box>
+    )
+});
 
 
-const sharedStylesInitializer = makeStyles({
-    sectionBase: { paddingTop: '7rem', paddingBottom: '2.5rem'},
-    innerBase: {borderRadius: '10px'}
-})
+export const CenterToPage = makeStyles({
+    center: {
+        minHeight: 'calc(100vh - 86px)',
+        // eslint-disable-next-line
 
-export { Header, elevate, sharedStylesInitializer, GapMaker, CustomSlide }
+        // eslint-disable-next-line
+        ['@media (max-width:599px)']: { 
+            
+        }
+    }
+});
