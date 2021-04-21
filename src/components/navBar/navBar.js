@@ -15,6 +15,9 @@ const navStyle = makeStyles({
         ['@media (max-width:401px)']: {
             fontSize: '0.9rem'
         },
+        ['@media (max-width:372px)']: {
+            fontSize: '0.7rem'
+        },
         // eslint-disable-next-line
         ['@media (max-width:359px)']: {
             visibility: 'hidden'

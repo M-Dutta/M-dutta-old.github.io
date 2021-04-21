@@ -8,10 +8,10 @@ import './App.css';
 
 function App() {
 	return (
-			<Box className='App' style={{ paddingTop: "3.5rem" }}>
+			<Box className='App' style={{ paddingTop: "35px" }}>
 				<section id='about'/>
 				<About />
-				<section id='experience' style={{scrollMarginTop:"3.5rem"}} />
+				<section id='experience' style={{scrollMarginTop:"35px"}} />
 				<Experience />
 			</Box>
 	)

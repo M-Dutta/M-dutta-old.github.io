@@ -1,5 +1,5 @@
-import { createMuiTheme } from '@material-ui/core';
-const theme = createMuiTheme();
+import { createMuiTheme, responsiveFontSizes } from '@material-ui/core';
+const theme = responsiveFontSizes(createMuiTheme());
 
 theme.typography.h2 = {
     fontFamily: 'zen dots !important'
@@ -30,6 +30,7 @@ theme.typography.body1 = {
     fontWeight: 'bold'
 }
 
+
 /*
 *** NavBar theming
 */
@@ -41,8 +42,8 @@ theme.overrides.MuiAppBar = {
 
 theme.overrides.MuiToolbar = {
     regular: {
-        maxHeight: "2.5rem !important",
-        minHeight: "2.5rem !important",
+        minHeight: "unset !important",
+        height: '35px'
     }
 }
 theme.overrides.MuiLink = {

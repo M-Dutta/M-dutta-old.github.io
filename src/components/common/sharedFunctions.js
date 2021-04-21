@@ -29,24 +29,24 @@ export const CustomSlide = React.forwardRef((props, ref) => {
     )
 });
 
-export const ViewPortVisibility = React.forwardRef((props, ref) => {
+export const ViewPortVisibilitySlide = React.forwardRef((props, ref) => {
     const children = props.children
     return (
         <ScrollTrigger onEnter={props.onEnter} onExit={props.onExit} throttleScroll={props.throttleScroll || 100}>
-            <Fade in={props.visible} timeout={2000}>
+            <Slide in={props.visible} direction={props.direction} timeout={600}>
                 <Box className={props.className || ''}>
                     {children}
                 </Box>
-            </Fade>
+            </Slide>
         </ScrollTrigger>
     )
 });
 
 
 export const ContentPane = React.forwardRef((props, ref) => {
-    const component = props.component || (props.children || null)
+    const component = props.children
     return (
-        <Box p={2} my={4} className={`content-pane ${props.className || null} `} ref={ref}>
+        <Box p={2} mt={4} className={`content-pane ${props.className || null} `} ref={ref}>
             {component}
         </Box>
     )
@@ -55,14 +55,14 @@ export const ContentPane = React.forwardRef((props, ref) => {
 
 export const CenterToPage = makeStyles({
     center: {
-        minHeight: 'calc(100vh - 2.5rem)',
+        minHeight: 'calc(100vh - 35px)',
         // eslint-disable-next-line
-        ['@media (max-width:905px)']: { 
-            minHeight: 'calc(100vh)',
+        ['@media (max-width:1061px)']: { 
+            minHeight: 'calc(100vh + 35px)',
         },
         // eslint-disable-next-line
         ['@media (max-width:599px)']: { 
-            minHeight: 'calc(100vh)'
+            
         }
     }
 });

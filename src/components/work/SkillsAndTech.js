@@ -1,6 +1,6 @@
 import React, { useState } from 'react'
 import { Grid, Typography, makeStyles } from '@material-ui/core';
-import { Title, ContentPane, ViewPortVisibility } from '../common/sharedFunctions'
+import { Title, ContentPane, ViewPortVisibilitySlide } from '../common/sharedFunctions'
 
 const Languages = ["Python", "JavaScript", "Java", "C++", "Golang"]
 //const Languages = "Python JavaScript Java C++ Golang"
@@ -58,7 +58,7 @@ export const SkillsAndTech = props => {
     const classes = useStyles()
 
     return (
-        <ViewPortVisibility onEnter={onEnterViewport} onExit={onExitViewport} throttleScroll={0} visible={visible}>
+        <ViewPortVisibilitySlide onEnter={onEnterViewport} onExit={onExitViewport} throttleScroll={0} visible={visible}>
             <section id='Tech Stack'>
                 <Grid container justify='center' alignItems='center'><Title title='Tech Stack' /></Grid>
                 <ContentPane className={classes.content}>
@@ -78,6 +78,6 @@ export const SkillsAndTech = props => {
                     </Grid>
                 </ContentPane>
             </section>
-        </ViewPortVisibility>
+        </ViewPortVisibilitySlide>
     )
 }
