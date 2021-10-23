@@ -8,11 +8,6 @@ const resumeLink = require('../../documents/Mishuk-resume.pdf')
 
 const iconStyle = makeStyles({
     resize: {
-        // eslint-disable-next-line
-        ['@media (max-width:360px)']: {
-            width: '2.7rem'
-        },
-
     },
     linkedInIcon: {
         color: '#0b73b1'
@@ -30,7 +25,7 @@ const iconStyle = makeStyles({
 export const LinkedInIcon = () => {
     const classes = iconStyle()
     return (
-        <IconButton className={[classes.linkedInIcon, classes.resize]} onClick={() => window.open(linkedInLink)}>
+        <IconButton className={[classes.linkedInIcon]} onClick={() => window.open(linkedInLink)}>
             <ion-icon name="logo-linkedin"></ion-icon>
         </IconButton>
     )
@@ -39,7 +34,7 @@ export const LinkedInIcon = () => {
 export const GitHubIcon = () => {
     const classes = iconStyle()
     return (
-        <IconButton className={[classes.githubIcon, classes.resize]} onClick={() => window.open(gitHubLink)}>
+        <IconButton className={[classes.githubIcon]} onClick={() => window.open(gitHubLink)}>
             <ion-icon name="logo-github"></ion-icon>
         </IconButton>
     )
@@ -48,7 +43,7 @@ export const GitHubIcon = () => {
 export const ResumeIcon = () => {
     const classes = iconStyle()
     return (
-        <IconButton className={[classes.resumeIcon, classes.resize]} onClick={() => window.open(resumeLink, 'titlebar=Mishuk-resume')}>
+        <IconButton className={[classes.resumeIcon]} onClick={() => window.open(resumeLink, 'titlebar=Mishuk-resume')}>
             <ion-icon name="document-attach-outline"></ion-icon>
         </IconButton>
     )

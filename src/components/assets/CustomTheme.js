@@ -43,7 +43,7 @@ theme.overrides.MuiAppBar = {
 theme.overrides.MuiToolbar = {
     regular: {
         minHeight: "unset !important",
-        height: '35px'
+        height: '42px'
     }
 }
 theme.overrides.MuiLink = {

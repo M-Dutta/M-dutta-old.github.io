@@ -60,12 +60,16 @@ export const ContentPane = React.forwardRef((props, ref) => {
 
 export const CenterToPage = makeStyles({
     center: {
-        minHeight: 'calc(100vh - 86px)',
-        // eslint-disable-next-line
+        minHeight: 'calc(100vh - 64px)',
+
 
         // eslint-disable-next-line
-        ['@media (max-width:599px)']: { 
-            
+        ['@media (max-width:1029px)']: { 
+            marginTop: '4em'
+        },
+        // eslint-disable-next-line
+        ['@media (max-width:420px)']: { 
+            marginTop: '3em'
         }
     }
 });

@@ -17,9 +17,10 @@ export const IntroName = props => {
     )
 };
 export const IntroParagraph = props => {
-    const lines = "I love wearing multiple hats. I'm passionate about writing software with scalable design/architecture" +
-        " and diving into DevOps -- building core infrastructure that allows teams to speed up their development and deployment processes." +
-        " I'm experienced in the complete software lifecycle, starting from the drawing board to production deployment via CI/CD."
+    const lines =`
+                    I love wearing multiple hats. I specialize in software design/architecture
+                    and core infrastructure development that allows teams to speed up their development and deployment processes. 
+                `
     return (
         <Grid container direction="column" alignItems="flex-start" justify="center">
             <Container><Typography variant="body1">{lines}</Typography></Container>
