@@ -5,8 +5,13 @@ import { Title, ContentPane } from '../common/sharedFunctions'
 
 const HighlistList = [
     {
-        point: "Security and OAuth2.0 Overhaul (Authentication and Authorization)",
-        descList: ["Lead the conversion of Web and IOS applications’ User and Api Auth to OAuth2.0 by utilizing the Identity Provider Auth0."]
+        point: "Security and Architecture (Authentication and Authorization)",
+        descList: [
+            "Lead the conversion of Web and IOS applications’ User and Api Auth to OAuth2.0 by utilizing the Identity Provider Auth0.",
+            "Lead the implementation of SSO for users bt leveraging OAuth2.0 flow",
+            "Architeced Authentication and Authorization flow between microservices using token based Machine to Machine flow.",
+            "Architeced service discovery that leverages open-source software to load balance too."
+        ]
     },
     {
         point: "Microservices and SPAs",
@@ -17,15 +22,22 @@ const HighlistList = [
         ]
     },
     {
-        point: "DevOps -- Service Discovery with attached loadbalancer",
+        point: "DevOps",
         descList: [
             "Experieced in CI/CD automation and integration via Gitlab and Terraform.",
             "Experienced with various cloud deployment strategies",
-            ["Deployed Single Page applications(SPAs) using AWS CloudFront, Route53 and S3.",
+            [
+                "Deployed Single Page applications(SPAs) using AWS CloudFront, Route53 and S3.",
                 "Deployed Severless Microservices using AWS Lamda, API-Gateway, DynamoDB etc.",
-                "Deployed standard RESTful Microservices using dokcer, ECS, EC2 load-balancer, Route53 etc."],
+                "Deployed standard RESTful Microservices using dokcer, ECS, EC2 load-balancer, Route53 etc."
+            ],
             "Built out numerous critical core Infrastructure for engineering org to consume. Eg.",
-            ["Service Discovery via Consul", "Server load balancing Infrastructure via Fabio."]
+            [
+                "Service Discovery via Consul", 
+                "Server load balancing and routing Infrastructure via Fabio that talks directly to consul.",
+                "Microservice registration, authentication and authorization infrastructure using OAuth2.0 flow, " + 
+                "AWS KMS and Gitlab Multi-Project Pipelines"
+            ]
         ],
     },
     {
