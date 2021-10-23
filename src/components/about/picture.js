@@ -4,10 +4,10 @@ import { CustomSlide } from '../common/sharedFunctions'
 
 const useStyles = makeStyles((theme) => ({
 	img: {
-		width: '350px',
+		maxWidth: '400px',
 		borderRadius: '20px',
 		[theme.breakpoints.down('xs')]: {
-			width: "250px"
+			maxWidth: "360px"
 		},
 	}
 }));
