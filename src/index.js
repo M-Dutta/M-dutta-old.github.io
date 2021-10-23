@@ -8,11 +8,13 @@ import { theme } from './components/assets/CustomTheme'
 import { ThemeProvider } from '@material-ui/core';
 import * as serviceWorker from './serviceWorker';
 import { BGParticles } from '../src/components/canvas/particles/Particles'
+import { SideNav } from './components/sideNav/sideNav';
 
 ReactDOM.render(
 	<React.StrictMode>
 		<ThemeProvider theme={theme}>
 			<Header />
+			<SideNav/>
 			<App />
 			<Footer />
 		</ThemeProvider>

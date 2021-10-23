@@ -15,8 +15,8 @@ const About = props => {
     })
     const classes = useStyles()
     return (
-        <Grid container direction="column" alignItems="center" justify="center" className={centerToPage.center}>
-            <Grid container direction="row" alignItems='center' justify='center' spacing={4}>
+
+            <Grid container direction="row" alignItems='center' justify='center' spacing={4} className={centerToPage.center}>
                 <CustomSlide direction='right' delay={600}>
                     <Grid item><MyPicture /></Grid>
                 </CustomSlide>
@@ -31,7 +31,7 @@ const About = props => {
                             </ContentPane>
                         </Container>
                     </CustomSlide>
-                </Grid>
+      
 
             </Grid>
         </Grid>

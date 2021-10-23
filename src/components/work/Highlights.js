@@ -9,20 +9,30 @@ const HighlistList = [
         descList: ["Lead the conversion of Web and IOS applications’ User and Api Auth to OAuth2.0 by utilizing the Identity Provider Auth0."]
     },
     {
-        point: "Microservices & Cloud Deployments",
-        descList: ["Developed & deployed microservices using Node.js, React, Django, PostgreSQL, Datadog using AWS" +
-            "(e.g., Lambda, API-Gateway, EC2 ALB, ECS, CloudFront, Route53, DynamoDB, S3) using TDD principles.",
-            "Built out self-scaling serverless microservices using AWS serverless architecture (Lambda, Route53, DynamoDB, API-Gateway).",
+        point: "Microservices and SPAs",
+        descList: [
+            "Experienced with development of RESTful microservices using TDD principles (Python-Django, Java-SpringBoot etc).",
+            "Developed several Single page applications (SPA's) using Node.js and React.",
+            "I work with Both SQL and NoSQL databases (PostgreSQL, DynamoDB, Cassandra etc.).",
         ]
     },
     {
         point: "DevOps -- Service Discovery with attached loadbalancer",
-        descList: ["Built Service Discovery and load balancing Infrastructure using Hashicorp Consul and open-source Fabio."]
+        descList: [
+            "Experieced in CI/CD automation and integration via Gitlab and Terraform.",
+            "Experienced with various cloud deployment strategies",
+            ["Deployed Single Page applications(SPAs) using AWS CloudFront, Route53 and S3.",
+                "Deployed Severless Microservices using AWS Lamda, API-Gateway, DynamoDB etc.",
+                "Deployed standard RESTful Microservices using dokcer, ECS, EC2 load-balancer, Route53 etc."],
+            "Built out numerous critical core Infrastructure for engineering org to consume. Eg.",
+            ["Service Discovery via Consul", "Server load balancing Infrastructure via Fabio."]
+        ],
     },
     {
         point: "Integrations",
-        descList: ["Payment Processors - Worked with WePay (Chase) to implement merchant payment terminal setup.",
-            "Integrated Canopy IOT platform with with Web applications."
+        descList: [
+            "Experienced in working with third party payment processors.",
+            "Experienced in integrating IOT platform(s) with with Web applications."
         ]
     }
 
@@ -40,9 +50,17 @@ const HiglightIterator = props => {
 
 const HighlightPointMaker = props => {
     const point = props.point
-    const desc = props.descList.map((data, index) => (
-        <li>{data}</li>
-    ))
+    const desc = props.descList.map((data, index) => {
+        if (!Array.isArray(data))
+            return <li>{data}</li>
+
+        // If it's another array inside the array, make another sublist from the data
+        let sublist = data.map((sublistItem, index) => (
+            <li>{sublistItem}</li>
+        ))
+        return (<ul>{sublist}</ul>)
+
+    })
     return (
         <ul>
             <li>
@@ -59,19 +77,20 @@ export const Highlights = props => {
     const useStyles = makeStyles({
         content: {
             backgroundColor: 'rgb(253 245 230 / 67%);',
-            borderRadius: '1em'
+            borderRadius: '1em',
+            paddingLeft: 0
         }
     })
 
     const classes = useStyles()
     return (
 
-            <section id="Highlights">
-                <Grid container justify='center' alignItems='center'><Title title='Highlights' /></Grid>
-                <ContentPane className={classes.content}>
-                    <HiglightIterator />
-                </ContentPane>
-            </section>
+        <section id="Highlights">
+            <Grid container justify='center' alignItems='center'><Title title='Highlights' /></Grid>
+            <ContentPane className={classes.content}>
+                <HiglightIterator />
+            </ContentPane>
+        </section>
 
     )
 
