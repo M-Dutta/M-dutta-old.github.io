@@ -39,11 +39,6 @@ export const Header = () => {
                             <Grid item><HashLink to='#experience' scroll={(el) => el.scrollIntoView({ behavior: 'smooth', block: 'start' })}><Typography className={classes.text}>Experience</Typography></HashLink></Grid>
                         </BrowserRouter>
                     </Grid>
-                    <Grid container direction='row' justify="flex-end" spacing={0}>
-                        <Grid item><LinkedInIcon /></Grid>
-                        <Grid item><GitHubIcon /></Grid>
-                        <Grid item><ResumeIcon /></Grid>
-                    </Grid>
                 </Toolbar>
             </AppBar>
         </CustomSlide>
